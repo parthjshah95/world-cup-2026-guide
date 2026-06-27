@@ -21,6 +21,9 @@ Core fields:
 - `club_country`
 - `club_with_country`
 - `position`
+- `date_of_birth`
+- `age`
+- `age_as_of`
 - `fc26_ovr`
 - `rating_source`
 - `rating_confidence`
@@ -29,6 +32,8 @@ Core fields:
 Optional provenance/display fields:
 
 - `source_url`
+- `age_source`
+- `age_source_url`
 - `rating_url`
 - `headshot_url`
 - `last_verified_at`
@@ -54,6 +59,14 @@ For the all-team expansion:
 - Missing-team rows were generated as ratings-led 15-player watchlists from each final squad, with at least one goalkeeper included when available.
 - Rows matched through FC Ratings are marked `rating_source = third_party_fc_database`.
 - Rows without a rating match keep blank `fc26_ovr` and are marked `rating_confidence = unknown`.
+
+## Age Enrichment
+
+Player ages were computed from date-of-birth values as of `2026-06-27`.
+
+- Rows with FC Ratings pages use the page's schema.org `birthDate` value.
+- Remaining rows use the Wikipedia infobox `bday` value from the matched player page.
+- `age_source` and `age_source_url` record which source supplied each birth date.
 
 ## Confidence Rules
 
