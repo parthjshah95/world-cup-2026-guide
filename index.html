@@ -1323,13 +1323,6 @@
       padding: 0 4px;
     }
 
-    .data-boundary-note {
-      padding: 0 4px;
-      color: var(--muted);
-      font-size: 0.84rem;
-      font-weight: 800;
-    }
-
     :root[data-theme="dark"] .eyebrow,
     :root[data-theme="dark"] .controls-panel,
     :root[data-theme="dark"] .player-list-panel {
@@ -2038,10 +2031,6 @@
       return escapeHtml(text);
     }
 
-    function renderDataBoundaryNote() {
-      return `<p class="data-boundary-note">Data rule: inclusion type has been removed from the CSV and UI. Do not reintroduce it into player cards, filters, or compare views.</p>`;
-    }
-
     function routeTo(next) {
       const params = new URLSearchParams();
       params.set("view", next.view || state.view);
@@ -2163,7 +2152,6 @@
               </div>
             </div>
           </section>
-          ${renderDataBoundaryNote()}
           ${renderPlayerList(rows, `${team} Player Cards`, `${stats.count} players in dataset`, {
             showTeam: false,
             showReset: false
@@ -2193,7 +2181,6 @@
             </div>
           </section>
           ${renderControls(true)}
-          ${renderDataBoundaryNote()}
           ${renderPlayerList(rows, "All Players", `${rows.length} visible players · ${state.rows.length} total`)}
         </section>
       `;
@@ -2282,6 +2269,7 @@
     }
 
     function renderPlayerList(rows, title, countText, options = {}) {
+      // Inclusion type is intentionally excluded from player cards, filters, and compare views.
       const columnOptions = {
         showTeam: true,
         showReset: true,
