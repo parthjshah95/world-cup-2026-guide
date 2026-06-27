@@ -12,6 +12,20 @@ python3 -m http.server 8765
 
 Then visit `http://127.0.0.1:8765/`.
 
+## Deploy
+
+Deploy to Cloud Run in the hardcoded Google Cloud project `parth-projects-500703`:
+
+```bash
+./scripts/deploy-gcloud.sh
+```
+
+Optional environment overrides:
+
+```bash
+REGION=us-central1 SERVICE_NAME=world-cup-2026-guide ./scripts/deploy-gcloud.sh
+```
+
 ## Features
 
 - Premium flag-card home page
