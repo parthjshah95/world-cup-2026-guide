@@ -367,14 +367,6 @@
       font-weight: 1000;
     }
 
-    .hero-copy p,
-    .section-kicker {
-      margin: 0;
-      max-width: 780px;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.35vw, 1.24rem);
-    }
-
     .country-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2193,7 +2185,6 @@
             <div>
               <div class="eyebrow">Global board</div>
               <h1>Top Players</h1>
-              <p class="section-kicker">A full-data view for quick cross-country sorting, filtering, and OVR comparison.</p>
             </div>
           </section>
           ${renderControls(true)}
@@ -2418,7 +2409,6 @@
           <div class="hero-copy">
             <div class="eyebrow">Head-to-head</div>
             <h1>Compare countries side by side.</h1>
-            <p>Pick a team for each side. Each half can be changed independently, and the URL updates once both selections are made.</p>
           </div>
           <div class="compare-layout">
             ${renderCompareSide("A", state.teamA, state.pickerSearchA)}
