@@ -4,7 +4,13 @@ Static interactive HTML app for browsing and comparing World Cup player cards fr
 
 ## Run Locally
 
-Open `index.html` directly, or serve the folder:
+Regenerate the browser-ready JSON after changing the CSV:
+
+```bash
+node scripts/build-data.js
+```
+
+Serve the folder:
 
 ```bash
 python3 -m http.server 8765
@@ -33,5 +39,5 @@ REGION=us-central1 SERVICE_NAME=world-cup-2026-guide ./scripts/deploy-gcloud.sh
 - Head-to-head country comparison
 - Global top players view
 - Search, lean filters, sort controls, player ages, and OVR bands
-- Static CSV source with no build system
+- Static CSV source with generated per-page JSON payloads
 - Local SVG flag backgrounds for all 48 qualified teams, sourced from FlagCDN
