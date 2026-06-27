@@ -504,7 +504,7 @@
     }
 
     .table-card {
-      overflow: hidden;
+      overflow: visible;
       border: 1px solid rgba(16, 24, 40, 0.08);
       border-radius: 30px;
       background: rgba(255, 255, 255, 0.82);
@@ -534,15 +534,15 @@
     }
 
     .table-wrap {
-      max-height: 70vh;
-      overflow: auto;
+      max-height: none;
+      overflow: visible;
     }
 
     table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
-      min-width: 1120px;
+      min-width: 0;
     }
 
     th,
@@ -1481,7 +1481,7 @@
               </div>
             </div>
           </section>
-          ${renderTableCard(rows, `${team} Player Table`, `${rows.length} visible players · ${stats.count} on team`, {
+          ${renderTableCard(rows, `${team} Player Table`, `${stats.count} players in dataset`, {
             showTeam: false,
             showInclusion: false,
             showSource: false,
@@ -1627,7 +1627,6 @@
                     <th class="sortable" data-sort="player" data-label="Player">Player</th>
                     ${columnOptions.showTeam ? `<th class="sortable" data-sort="team" data-label="Team">Team</th>` : ""}
                     <th class="sortable" data-sort="club_with_country" data-label="Club">Club</th>
-                    <th class="sortable" data-sort="position" data-label="Position">Position</th>
                     <th class="sortable" data-sort="fc26_ovr" data-label="FC 26 OVR">FC 26 OVR</th>
                     ${columnOptions.showInclusion ? `<th class="sortable" data-sort="inclusion_type" data-label="Inclusion Type">Inclusion Type</th>` : ""}
                     ${columnOptions.showSource ? "<th>Source</th>" : ""}
@@ -1668,7 +1667,6 @@
           </td>
           ${options.showTeam ? `<td><span class="pill">${escapeHtml(row.team)}</span></td>` : ""}
           <td>${renderClub(row)}</td>
-          <td>${escapeHtml(row.position || "—")}<div class="meta">${escapeHtml(row._position_group)}</div></td>
           <td>${renderOvr(row)}</td>
           ${options.showInclusion ? `<td><span class="badge">${escapeHtml(labelize(row.inclusion_type))}</span></td>` : ""}
           ${options.showSource ? `<td>${escapeHtml(row.rating_source || "Unknown")}${renderConfidence(row)}</td>` : ""}
@@ -1692,7 +1690,6 @@
           </div>
           <div class="card-meta-grid">
             <div><b>Club</b>${renderClub(row)}</div>
-            <div><b>Position Group</b>${escapeHtml(row._position_group)}</div>
             ${options.showInclusion ? `<div><b>Inclusion</b>${escapeHtml(labelize(row.inclusion_type))}</div>` : ""}
             ${options.showSource ? `<div><b>Confidence</b>${renderConfidence(row)}</div>` : ""}
           </div>
