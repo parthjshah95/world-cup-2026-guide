@@ -499,14 +499,14 @@
       top: 22px;
       right: 22px;
       display: grid;
-      gap: 2px;
+      place-items: center;
       min-width: 70px;
       padding: 9px 12px;
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.28);
       color: #fff;
-      text-align: right;
+      text-align: center;
       backdrop-filter: blur(12px);
       text-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
     }
@@ -516,14 +516,6 @@
       line-height: 1;
       font-weight: 1000;
       font-variant-numeric: tabular-nums;
-    }
-
-    .country-score span {
-      font-size: 0.62rem;
-      font-weight: 950;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.82;
     }
 
     .glass-pill {
@@ -2104,19 +2096,15 @@
       const stats = teamStats(team);
       const className = size === "mini" ? "mini-country-card" : "country-card";
       const score = formatNumber(stats.strengthScore);
-      const scoreLabel = stats.strengthComplete ? "Top XI" : `${stats.strengthRatedCount}/11`;
       return `
         <button class="${className}" type="button" data-team-card="${escapeHtml(team)}" style="${styleVars(team)} --i: ${index};">
           ${size !== "mini" ? `
             <div class="hover-metadata">
-              <span class="glass-pill">Score ${score}</span>
               <span class="glass-pill">Top ${escapeHtml(stats.top ? `${stats.top.player} · ${renderAge(stats.top)}` : "—")}</span>
-              <span class="glass-pill">${stats.count} players</span>
             </div>
           ` : ""}
-          <span class="country-score" aria-label="Top eleven rating score ${score}">
+          <span class="country-score" aria-label="Rating score ${score}">
             <strong>${score}</strong>
-            <span>${escapeHtml(scoreLabel)}</span>
           </span>
           <span class="country-card-content">
             <span>
