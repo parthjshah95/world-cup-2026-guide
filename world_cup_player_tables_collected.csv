@@ -1,0 +1,104 @@
+team,player,club,club_country,club_with_country,position,fc26_ovr,inclusion_type,rating_source,rating_confidence,notes
+Uruguay,Fernando Muslera,Estudiantes,Argentina,Estudiantes [Argentina],GK,79,confirmed_starting_xi_vs_spain,EA official (per prior chat),medium,Veteran legend; hugely respected for big-tournament experience.
+Uruguay,Juan Manuel Sanabria,Real Salt Lake,United States,Real Salt Lake [United States],Fullback / wingback / wide mid,74,confirmed_starting_xi_vs_spain,third-party FC database (per prior chat),low,"Less globally famous; mobile, versatile, high-energy Bielsa-type player."
+Uruguay,Sebastian Caceres,Club America,Mexico,Club America [Mexico],CB,75,confirmed_starting_xi_vs_spain,third-party FC database (per prior chat),low,Solid physical defender; better known in the Americas than globally.
+Uruguay,Guillermo Varela,Flamengo,Brazil,Flamengo [Brazil],RB / CB,76,confirmed_starting_xi_vs_spain,third-party FC database (per prior chat),low,"Experienced, tough, tactically flexible veteran profile."
+Uruguay,Mathias Olivera,Napoli,Italy,Napoli [Italy],LB / CB,78,confirmed_starting_xi_vs_spain,EA official (per prior chat),medium,Very solid top-level defender; underrated outside Serie A followers.
+Uruguay,Manuel Ugarte,Manchester United,England,Manchester United [England],DM,79,confirmed_starting_xi_vs_spain,EA official (per prior chat),medium,High-profile ball-winner; tactically valuable despite not being flashy.
+Uruguay,Rodrigo Bentancur,Tottenham Hotspur,England,Tottenham Hotspur [England],CM / DM,80,confirmed_starting_xi_vs_spain,EA official (per prior chat),medium,"Elegant, experienced midfielder; well-known from Juventus and Spurs."
+Uruguay,Federico Valverde,Real Madrid,Spain,Real Madrid [Spain],CM / captain,89,confirmed_starting_xi_vs_spain,EA official (per prior chat),medium,"Uruguay's clear global star; elite engine, shooting and leadership."
+Uruguay,Agustin Canobbio,Fluminense,Brazil,Fluminense [Brazil],RW / forward,75,confirmed_starting_xi_vs_spain,third-party FC database (per prior chat),low,Energetic wide attacker; useful chaos player rather than household name.
+Uruguay,Darwin Nunez,Al-Hilal,Saudi Arabia,Al-Hilal [Saudi Arabia],ST,79,confirmed_starting_xi_vs_spain,EA official (per prior chat),medium,"Famous, explosive, polarizing; obvious talent with consistency questions."
+Uruguay,Maximiliano Araujo,Sporting CP,Portugal,Sporting CP [Portugal],LW / wide mid,77,confirmed_starting_xi_vs_spain,EA official (per prior chat),medium,"Fast, direct, exciting wide player; one of Uruguay's more fun attackers."
+Spain,Unai Simon,Athletic Club,Spain,Athletic Club [Spain],GK,85,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,Spain's trusted No. 1; respected more than celebrity-famous.
+Spain,Marcos Llorente,Atletico Madrid,Spain,Atletico Madrid [Spain],RB / utility defender-midfielder,84,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,Extremely versatile and athletic; admired by serious fans.
+Spain,Pau Cubarsi,Barcelona,Spain,Barcelona [Spain],CB,82,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,Elite young defensive talent; calm modern ball-playing centre-back.
+Spain,Aymeric Laporte,Athletic Club,Spain,Athletic Club [Spain],CB,82,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,Experienced polished left-footed defender; still high-class.
+Spain,Marc Cucurella,Real Madrid,Spain,Real Madrid [Spain],LB,84,confirmed_starting_xi_vs_uruguay,EA official (game team may differ; per prior chat),low,"Very recognizable, energetic and aggressive; divisive but top-level."
+Spain,Rodri,Manchester City,England,Manchester City [England],DM,90,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,Spain's structural anchor and one of the world's elite midfielders.
+Spain,Mikel Merino,Arsenal,England,Arsenal [England],CM,83,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,"Powerful, smart, coach-friendly midfielder; not flashy but very useful."
+Spain,Pedri,Barcelona,Spain,Barcelona [Spain],CM / AM,89,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,One of Spain's biggest pure talents; elegant and very popular.
+Spain,Alex Baena,Atletico Madrid,Spain,Atletico Madrid [Spain],AM / LW / CM,84,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,"Creative, clever, dangerous between lines; less famous than Yamal or Pedri."
+Spain,Lamine Yamal,Barcelona,Spain,Barcelona [Spain],RW,89,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,"Spain's headline wonderkid; globally hyped, electric and mature."
+Spain,Mikel Oyarzabal,Real Sociedad,Spain,Real Sociedad [Spain],CF / LW,82,confirmed_starting_xi_vs_uruguay,EA official (per prior chat),medium,"Intelligent, clinical, big-game Spain player; less glamorous but trusted."
+Argentina,Emiliano Martinez,Aston Villa,England,Aston Villa [England],GK,85,expected_core_or_rotation,EA official (per prior chat),medium,Huge personality and one of Argentina's most recognizable post-2022 heroes.
+Argentina,Gonzalo Montiel,River Plate,Argentina,River Plate [Argentina],RB,78,expected_core_or_rotation,EA official/third-party mixed (per prior chat),low,Cult hero for scoring the 2022 World Cup-winning penalty.
+Argentina,Nicolas Otamendi,Benfica,Portugal,Benfica [Portugal],CB,82,expected_core_or_rotation,EA official (per prior chat),medium,Veteran warrior; respected for leadership and toughness.
+Argentina,Marcos Senesi,Bournemouth,England,Bournemouth [England],CB,78,expected_core_or_rotation,EA official/third-party mixed (per prior chat),low,Strong Premier League-level defender; technically clean and reliable.
+Argentina,Nicolas Tagliafico,Lyon,France,Lyon [France],LB,78,expected_core_or_rotation,EA official/third-party mixed (per prior chat),low,"Experienced, smart and relentless fullback; dependable tournament soldier."
+Argentina,Giuliano Simeone,Atletico Madrid,Spain,Atletico Madrid [Spain],RM / winger,81,expected_core_or_rotation,EA official/third-party mixed (per prior chat),low,Rising high-energy name with obvious Simeone-family attention.
+Argentina,Exequiel Palacios,Bayer Leverkusen,Germany,Bayer Leverkusen [Germany],CM,84,expected_core_or_rotation,EA official (per prior chat),medium,"Excellent, underrated midfielder; tactically sharp and press-resistant."
+Argentina,Leandro Paredes,Boca Juniors,Argentina,Boca Juniors [Argentina],CM / DM,78,expected_core_or_rotation,EA official/third-party mixed (per prior chat),low,"Well-known veteran passer, tempo-controller and shithouser."
+Argentina,Giovani Lo Celso,Real Betis,Spain,Real Betis [Spain],CAM / CM,82,expected_core_or_rotation,EA official (per prior chat),medium,Gifted creative midfielder; reputation shaped by injuries and consistency.
+Argentina,Julian Alvarez,Atletico Madrid,Spain,Atletico Madrid [Spain],ST / second striker,87,expected_core_or_rotation,EA official (per prior chat),medium,One of Argentina's biggest current stars after Messi and Lautaro.
+Argentina,Jose Manuel Lopez,Palmeiras,Brazil,Palmeiras [Brazil],ST,79,expected_core_or_rotation,third-party FC database (per prior chat),low,Big physical in-form striker; less internationally famous but interesting squad pick.
+Argentina,Lautaro Martinez,Inter Milan,Italy,Inter Milan [Italy],ST,88,famous_star_likely_to_play,EA official (Lombardia FC licensing; per prior chat),medium,"Argentina's best pure striker; sharp finisher, aggressive presser, elite movement."
+Argentina,Lionel Messi,Inter Miami CF,United States,Inter Miami CF [United States],RW / CAM / second striker,86,famous_star_likely_to_play,EA official (per prior chat),medium,"The legend; Argentina's biggest name by miles, with elite touch, passing and aura."
+France,Mike Maignan,AC Milan,Italy,AC Milan [Italy],GK,87,core_tournament_player,EA official (per prior chat),medium,Core starter; one of the world's best goalkeepers.
+France,Jules Kounde,Barcelona,Spain,Barcelona [Spain],RB / CB,87,core_tournament_player,EA official (per prior chat),medium,Elite defensive fullback/centre-back hybrid; tactically top-tier.
+France,William Saliba,Arsenal,England,Arsenal [England],CB,87,core_tournament_player,EA official (per prior chat),medium,Probably France's most complete defender; widely rated world-class.
+France,Dayot Upamecano,Bayern Munich,Germany,Bayern Munich [Germany],CB,85,likely_starter_or_rotation,EA official (per prior chat),medium,"Physically dominant and fast, with very high ceiling."
+France,Theo Hernandez,Al-Hilal,Saudi Arabia,Al-Hilal [Saudi Arabia],LB,84,likely_starter_or_rotation,EA official (per prior chat),medium,Explosive attacking left-back; famous for pace and directness.
+France,Aurelien Tchouameni,Real Madrid,Spain,Real Madrid [Spain],CDM / CM,84,core_tournament_player,EA official (per prior chat),medium,Defensive anchor with elite positioning and passing.
+France,Adrien Rabiot,AC Milan,Italy,AC Milan [Italy],CM,83,rotation_or_possible_starter,EA official (per prior chat),medium,"Experienced, physical and useful in tournament football."
+France,Michael Olise,Bayern Munich,Germany,Bayern Munich [Germany],RM / RW / AM,86,core_tournament_player,EA official (per prior chat),medium,Elegant creator with a fantastic left foot; one of France's most exciting players.
+France,Ousmane Dembele,PSG,France,PSG [France],RW / ST,90,core_star,EA official (per prior chat),medium,"Electric, two-footed and unpredictable; terrifying when fit and sharp."
+France,Kylian Mbappe,Real Madrid,Spain,Real Madrid [Spain],ST / LW,91,core_superstar,EA official (per prior chat),medium,France's main superstar; global icon with absurd pace and finishing.
+France,Bradley Barcola,PSG,France,PSG [France],LW,84,high_usage_rotation,EA official (per prior chat),medium,Fast direct winger; next-wave French attacker.
+France,Desire Doue,PSG,France,PSG [France],RW / AM,85,high_upside_rotation_star,EA official (per prior chat),medium,Huge technical talent; rising star rather than established icon.
+France,Marcus Thuram,Inter Milan,Italy,Inter Milan [Italy],ST / LW,85,famous_rotation_forward,EA official (per prior chat),medium,"Powerful, clever and versatile option for size and chaos."
+France,N'Golo Kante,Fenerbahce,Turkey,Fenerbahce [Turkey],CDM / CM,85,famous_veteran_option,EA official (per prior chat),medium,Beloved legendary ball-winner; still iconic even past his peak.
+France,Ibrahima Konate,Liverpool,England,Liverpool [England],CB,86,major_defensive_rotation,EA official (per prior chat),medium,"Big, fast and aggressive; good enough to start for many countries."
+France,Rayan Cherki,Manchester City,England,Manchester City [England],RW / AM,81,creative_bench_wildcard,EA official (per prior chat),medium,Very talented flair player; more flair than reliability.
+England,Jordan Pickford,Everton,England,Everton [England],GK,84,core_tournament_player,EA official (per prior chat),medium,Trusted tournament goalkeeper; mentally strong and experienced.
+England,Reece James,Chelsea,England,Chelsea [England],RB / RWB,81,likely_starter_or_rotation,EA official (per prior chat),medium,Very talented powerful fullback; injuries have limited reputation.
+England,John Stones,Manchester City,England,Manchester City [England],CB,82,core_when_fit,EA official (per prior chat),medium,Calm defensive leader and sophisticated ball-player.
+England,Ezri Konsa,Aston Villa,England,Aston Villa [England],CB / RB,82,likely_starter_or_rotation,EA official (per prior chat),medium,"Reliable, athletic and coach-friendly."
+England,Marc Guehi,Manchester City,England,Manchester City [England],CB,82,likely_starter,EA official (per prior chat),medium,Composed smart defender increasingly trusted internationally.
+England,Djed Spence,Tottenham Hotspur,England,Tottenham Hotspur [England],RB,78,rotation_or_possible_starter,EA official (per prior chat),medium,Athletic direct fullback; less established but useful in matchups.
+England,Declan Rice,Arsenal,England,Arsenal [England],CDM / CM,87,core_tournament_player,EA official (per prior chat),medium,"England's midfield stabilizer; elite engine, duels and leadership."
+England,Jude Bellingham,Real Madrid,Spain,Real Madrid [Spain],CAM / CM,90,core_superstar,EA official (per prior chat),medium,England's biggest current star; complete midfielder with huge aura.
+England,Elliot Anderson,Nottingham Forest,England,Nottingham Forest [England],CDM / CM,80,tournament_riser,EA official (per prior chat),medium,Less famous but trusted; energetic and tidy.
+England,Harry Kane,Bayern Munich,Germany,Bayern Munich [Germany],ST,89,core_captain,EA official (per prior chat),medium,Captain and main No. 9; elite finisher and passer.
+England,Bukayo Saka,Arsenal,England,Arsenal [England],RW,88,core_star_when_fit,EA official (per prior chat),medium,"Hugely popular, direct and decisive winger."
+England,Noni Madueke,Arsenal,England,Arsenal [England],RW,80,high_usage_winger,EA official (per prior chat),medium,Fast aggressive winger trusted in setup.
+England,Anthony Gordon,Barcelona,Spain,Barcelona [Spain],LW,83,likely_starter_or_rotation,EA official (per prior chat),medium,High-intensity modern pressing winger.
+England,Marcus Rashford,Barcelona,Spain,Barcelona [Spain],LW / ST,80,famous_bench_or_rotation_star,EA official (per prior chat),medium,Explosive and recognizable; form can swing but still dangerous.
+England,Eberechi Eze,Arsenal,England,Arsenal [England],CAM / LW,83,creative_bench_weapon,EA official (per prior chat),medium,Smooth dribbler and clever creator who can change a stuck game.
+England,Ollie Watkins,Aston Villa,England,Aston Villa [England],ST,84,impact_striker,EA official (per prior chat),medium,"Kane backup; fast, selfless and reliable Premier League scorer."
+England,Ivan Toney,Al-Ahli,Saudi Arabia,Al-Ahli [Saudi Arabia],ST,81,bench_striker,EA official (per prior chat),medium,Physical penalty specialist with a different No. 9 profile.
+Portugal,Diogo Costa,FC Porto,Portugal,FC Porto [Portugal],GK,84,core_tournament_player,EA official (per prior chat),medium,Modern keeper with strong shot-stopping and distribution.
+Portugal,Joao Cancelo,Barcelona,Spain,Barcelona [Spain],RB / LB,84,likely_starter_or_rotation,EA official (per prior chat),medium,Technically brilliant creative fullback; defensively adventurous.
+Portugal,Ruben Dias,Manchester City,England,Manchester City [England],CB,86,core_defensive_leader,EA official (per prior chat),medium,Portugal's defensive rock and elite organizer.
+Portugal,Goncalo Inacio,Sporting CP,Portugal,Sporting CP [Portugal],CB,81,likely_starter_or_rotation,EA official (per prior chat),medium,Left-footed composed passer with tactical value.
+Portugal,Nuno Mendes,PSG,France,PSG [France],LB,86,core_tournament_player,EA official (per prior chat),medium,One of the world's best attacking fullbacks; absurd pace and recovery.
+Portugal,Vitinha,PSG,France,PSG [France],CM,89,core_tournament_player,EA official (per prior chat),medium,Portugal's midfield brain and highest-rated FC 26 Portuguese player in prior table.
+Portugal,Bruno Fernandes,Manchester United,England,Manchester United [England],CAM / CM,87,core_creator,EA official (per prior chat),medium,Chance-creation machine and emotional leader.
+Portugal,Joao Neves,PSG,France,PSG [France],CM,85,core_or_near_core_midfielder,EA official (per prior chat),medium,"Young, intense, complete midfielder and next Portugal pillar."
+Portugal,Bernardo Silva,Manchester City,England,Manchester City [England],CM / RW,84,core_veteran_creator,EA official (per prior chat),medium,"Incredibly intelligent, press-resistant and beloved by tactics nerds."
+Portugal,Cristiano Ronaldo,Al Nassr,Saudi Arabia,Al Nassr [Saudi Arabia],ST,85,core_icon_or_major_striker,EA official (per prior chat),medium,Global icon; no longer peak Ronaldo but still box-office and a goal threat.
+Portugal,Rafael Leao,AC Milan,Italy,AC Milan [Italy],LW,84,star_winger_or_impact_weapon,EA official (per prior chat),medium,Explosive stylish winger; inconsistent but unplayable on his day.
+Portugal,Joao Felix,Al Nassr,Saudi Arabia,Al Nassr [Saudi Arabia],CAM / second striker,79,famous_creative_forward,EA official (per prior chat),medium,"Very talented aesthetically, but polarizing on end product."
+Portugal,Pedro Neto,Chelsea,England,Chelsea [England],RW / LW,80,likely_rotation_winger,EA official (per prior chat),medium,Direct fast winger useful for stretching games.
+Portugal,Goncalo Ramos,PSG,France,PSG [France],ST,80,ronaldo_alternative,EA official (per prior chat),medium,Traditional striker profile; famous for 2022 hat trick vs Switzerland.
+Portugal,Francisco Conceicao,Juventus,Italy,Juventus [Italy],RM / RW,79,bench_spark,EA official (per prior chat),medium,Small sharp dribbler; good late-game chaos option.
+Portugal,Diogo Dalot,Manchester United,England,Manchester United [England],RB / LB,79,defensive_rotation,EA official (per prior chat),medium,Versatile steady fullback across both sides.
+Portugal,Renato Veiga,Villarreal,Spain,Villarreal [Spain],CB / LB,76,squad_defender,EA official/third-party mixed (per prior chat),low,Less famous but versatile and physically useful.
+Brazil,Alisson,Liverpool,England,Liverpool [England],GK,89,core_tournament_player,EA official (per prior chat),medium,"Elite goalkeeper; calm, complete and trusted in big matches."
+Brazil,Danilo,Flamengo,Brazil,Flamengo [Brazil],RB / CB,76,veteran_leader,third-party FC database (per prior chat),low,Tactically smart experienced veteran across the back line.
+Brazil,Marquinhos,PSG,France,PSG [France],CB,87,core_defender,EA official (per prior chat),medium,Longtime Brazil and PSG leader; elegant and experienced.
+Brazil,Gabriel Magalhaes,Arsenal,England,Arsenal [England],CB,88,core_tournament_player,EA official (per prior chat),medium,Powerful aggressive Premier League centre-back; arguably Brazil's best pure defender.
+Brazil,Douglas Santos,Zenit Saint Petersburg,Russia,Zenit Saint Petersburg [Russia],LB,77,likely_starter_or_rotation,third-party FC database (per prior chat),low,Experienced steady left-back trusted by Ancelotti.
+Brazil,Eder Militao,Real Madrid,Spain,Real Madrid [Spain],CB / RB,84,big_name_defensive_rotation,EA official (per prior chat),medium,Elite athlete and Real Madrid pedigree; starts for many teams when fit.
+Brazil,Casemiro,Manchester United,England,Manchester United [England],CDM,80,veteran_midfield_general,EA official (per prior chat),medium,Famous combative tactical midfielder; past his peak but important.
+Brazil,Bruno Guimaraes,Newcastle United,England,Newcastle United [England],CM / DM,86,core_midfielder,EA official (per prior chat),medium,"Modern midfield engine: press-resistant, aggressive and technical."
+Brazil,Lucas Paqueta,Flamengo,Brazil,Flamengo [Brazil],CM / AM,80,creative_starter_or_rotation,EA official (per prior chat),medium,Skillful expressive creator; sometimes inconsistent but adds flair.
+Brazil,Raphinha,Barcelona,Spain,Barcelona [Spain],RW / LW,89,core_star_when_fit,EA official (per prior chat),medium,High-energy productive attacker and one of Brazil's highest-rated FC 26 players.
+Brazil,Rayan,Bournemouth,England,Bournemouth [England],RW / ST,78,breakout_tournament_wildcard,third-party FC database (per prior chat),low,Big left-footed direct high-upside attacker; suddenly relevant after starting.
+Brazil,Vinicius Jr.,Real Madrid,Spain,Real Madrid [Spain],LW,89,headline_star,EA official (per prior chat),medium,"Brazil's main face; explosive, terrifying one-v-one, huge global profile."
+Brazil,Matheus Cunha,Manchester United,England,Manchester United [England],ST / CAM,83,likely_starter,EA official (per prior chat),medium,Intelligent technical forward; useful and in-form.
+Brazil,Neymar,Santos,Brazil,Santos [Brazil],CAM / LW,83,famous_bench_or_star_option,third-party FC database (per prior chat),low,Brazil's all-time top scorer and biggest aura player; fitness is the question.
+Brazil,Gabriel Martinelli,Arsenal,England,Arsenal [England],LW,81,high_usage_bench_or_rotation_winger,EA official (per prior chat),medium,Fast direct intense winger; useful for fresh legs and pressing.
+Brazil,Endrick,Lyon,France,Lyon [France],ST,77,famous_young_striker,EA official (per prior chat),medium,Massive hype and talent; still developing.
+Brazil,Ederson,Fenerbahce,Turkey,Fenerbahce [Turkey],GK,85,famous_backup_keeper,EA official (per prior chat),medium,Elite passer for a goalkeeper; would start for many national teams.
+Brazil,Igor Thiago,Brentford,England,Brentford [England],ST,,bench_striker_option,not collected,unknown,Physical striker option; less famous globally.
