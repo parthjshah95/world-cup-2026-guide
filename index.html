@@ -1945,7 +1945,6 @@
           ${renderDataBoundaryNote()}
           ${renderTableCard(rows, `${team} Player Table`, `${stats.count} players in dataset`, {
             showTeam: false,
-            showSource: false,
             showReset: false
           })}
           <p class="fine-print">Future iterations can add per-row source URLs for stricter provenance.</p>
@@ -2063,7 +2062,6 @@
     function renderTableCard(rows, title, countText, options = {}) {
       const columnOptions = {
         showTeam: true,
-        showSource: true,
         showReset: true,
         ...options
       };
@@ -2085,7 +2083,6 @@
                     ${columnOptions.showTeam ? `<th class="sortable" data-sort="team" data-label="Team">Team</th>` : ""}
                     <th class="sortable" data-sort="club_with_country" data-label="Club">Club</th>
                     <th class="sortable" data-sort="fc26_ovr" data-label="FC 26 OVR">FC 26 OVR</th>
-                    ${columnOptions.showSource ? "<th>Source</th>" : ""}
                     <th>Notes</th>
                   </tr>
                 </thead>
@@ -2124,7 +2121,6 @@
           ${options.showTeam ? `<td><span class="pill">${escapeHtml(row.team)}</span></td>` : ""}
           <td>${renderClub(row)}</td>
           <td>${renderOvr(row)}</td>
-          ${options.showSource ? `<td>${escapeHtml(row.rating_source || "Unknown")}</td>` : ""}
           <td class="notes">${renderNotes(row.notes)}</td>
         </tr>
       `;
