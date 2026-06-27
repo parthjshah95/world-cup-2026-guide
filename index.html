@@ -444,12 +444,12 @@
     .mini-country-card:hover,
     .mini-country-card:focus-visible {
       z-index: 4;
-      transform: translate3d(0, -5px, 16px) scale(1.015) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+      transform: translate3d(0, -3px, 6px) scale(1.006) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
       box-shadow:
-        0 38px 54px rgba(15, 23, 42, 0.24),
-        0 16px 22px rgba(15, 23, 42, 0.15),
-        0 5px 10px rgba(15, 23, 42, 0.08);
-      filter: saturate(1.04) contrast(1.01);
+        0 36px 56px rgba(15, 23, 42, 0.25),
+        0 16px 22px rgba(15, 23, 42, 0.14),
+        0 4px 8px rgba(15, 23, 42, 0.06);
+      filter: saturate(1.025) contrast(1.006);
     }
 
     .country-card:hover::after,
@@ -2278,8 +2278,8 @@
           const y = ((event.clientY - rect.top) / rect.height) * 100;
           card.style.setProperty("--mx", `${x}%`);
           card.style.setProperty("--my", `${y}%`);
-          card.style.setProperty("--tilt-x", `${(x - 50) / 12}deg`);
-          card.style.setProperty("--tilt-y", `${(50 - y) / 12}deg`);
+          card.style.setProperty("--tilt-x", `${(x - 50) / 20}deg`);
+          card.style.setProperty("--tilt-y", `${(50 - y) / 20}deg`);
         });
         card.addEventListener("pointerleave", () => {
           card.style.removeProperty("--tilt-x");
