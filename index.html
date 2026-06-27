@@ -167,8 +167,11 @@
     .nav {
       display: inline-flex;
       align-items: center;
+      flex: 0 1 auto;
       gap: 8px;
+      max-width: 100%;
       padding: 0;
+      overflow-x: auto;
     }
 
     .nav-button,
@@ -182,6 +185,7 @@
       border-radius: 999px;
       padding: 10px 16px;
       font-weight: 900;
+      white-space: nowrap;
       transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
     }
 
@@ -1470,22 +1474,22 @@
 
     @media (max-width: 900px) {
       .topbar {
-        align-items: flex-start;
-        flex-direction: column;
-        padding-right: 92px;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 12px 14px;
       }
 
       .top-actions {
-        position: absolute;
-        top: 14px;
-        right: 14px;
+        position: static;
+        margin-left: auto;
       }
 
       .nav {
         margin: -16px -8px -30px;
         padding: 16px 8px 30px;
-        width: 100%;
-        overflow-x: auto;
+        width: auto;
       }
 
       .country-grid,
@@ -1526,12 +1530,11 @@
 
       .topbar {
         padding: 12px;
-        padding-right: 82px;
+        gap: 10px;
       }
 
       .top-actions {
-        top: 11px;
-        right: 12px;
+        margin-left: auto;
       }
 
       .brand {
@@ -1562,7 +1565,8 @@
       }
 
       .nav-button {
-        padding: 9px 13px;
+        min-height: 40px;
+        padding: 8px 11px;
       }
 
       h1 {
@@ -1633,6 +1637,20 @@
 
       .card-meta-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand {
+        order: 1;
+      }
+
+      .top-actions {
+        order: 2;
+      }
+
+      .nav {
+        order: 3;
       }
     }
 
