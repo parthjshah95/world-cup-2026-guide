@@ -8,7 +8,7 @@
     renderTopbar,
     styleVars
   } = WC26.Components;
-  const { animateCounters, bindDynamicEffects, escapeHtml, formatNumber, readParams, renderAge, setUrlParams } = WC26.Utils;
+  const { animateCounters, bindDynamicEffects, escapeHtml, formatNumber, readParams, renderAge, setUrlParams, teamUrl } = WC26.Utils;
   const { loadTeam, loadTeamsSummary, showLoadError } = WC26.Data;
   const { teamStats } = WC26.Stats;
 
@@ -114,8 +114,9 @@
             ${renderMetric("Top Player", stats.top ? stats.top.player : "—", stats.top ? `${stats.top._ovr} OVR · ${renderAge(stats.top)}` : "No rating")}
             ${renderMetric("85+ / 90+", `${stats.stars85} / ${stats.elite90}`, "Star and elite counts")}
           </div>
-          <div class="compare-section">
+          <div class="compare-section compare-actions">
             <button class="ghost-button" type="button" data-change-side="${side}">Change team</button>
+            <a class="solid-button" href="${teamUrl(summary)}">View team home</a>
           </div>
           <div class="compare-section">
             <h3>Top 5 Players</h3>

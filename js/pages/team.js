@@ -1,7 +1,7 @@
 (async function () {
   const WC26 = window.WC26;
   const { renderHeroStat, renderPlayerList, renderTopbar, styleVars } = WC26.Components;
-  const { animateCounters, compareRowsForState, escapeHtml, formatNumber, readParams, renderAge } = WC26.Utils;
+  const { animateCounters, compareRowsForState, compareUrl, escapeHtml, formatNumber, readParams, renderAge } = WC26.Utils;
   const { loadTeam, loadTeamsSummary, showLoadError } = WC26.Data;
   const { teamStats } = WC26.Stats;
 
@@ -28,6 +28,9 @@
           <div class="team-hero-content">
             <div>
               <h1 class="team-title">${escapeHtml(summary.name)}</h1>
+              <div class="team-hero-actions">
+                <a class="solid-button hero-action-button" href="${compareUrl(summary)}">Compare ${escapeHtml(summary.name)}</a>
+              </div>
             </div>
             <div class="hero-stats">
               ${renderHeroStat("Avg OVR", formatNumber(stats.average), "Blank ratings excluded")}

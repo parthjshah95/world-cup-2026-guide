@@ -606,6 +606,20 @@ label {
   text-shadow: 0 20px 42px rgba(0, 0, 0, 0.22);
 }
 
+.team-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.team-hero .hero-action-button {
+  border-color: rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.92);
+  color: #101828;
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.24);
+}
+
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(180px, 1fr));
@@ -1123,6 +1137,16 @@ label {
 
 .compare-section {
   min-width: 0;
+}
+
+.compare-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.compare-actions > * {
+  flex: 1 1 160px;
 }
 
 .compare-section h3 {

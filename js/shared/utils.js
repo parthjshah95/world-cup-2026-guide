@@ -68,6 +68,23 @@
     return row && row.age ? `Age ${escapeHtml(row.age)}` : "Age —";
   }
 
+  function teamParam(team) {
+    if (team && typeof team === "object") return team.slug || slugify(team.name);
+    return slugify(team);
+  }
+
+  function teamUrl(team) {
+    return `team.html?team=${encodeURIComponent(teamParam(team))}`;
+  }
+
+  function compareUrl(teamA, teamB = "") {
+    const params = new URLSearchParams();
+    if (teamA) params.set("teamA", teamParam(teamA));
+    if (teamB) params.set("teamB", teamParam(teamB));
+    const query = params.toString();
+    return `compare.html${query ? `?${query}` : ""}`;
+  }
+
   function uniqueSorted(rows, key) {
     return [...new Set(rows.map((row) => row[key]).filter(Boolean))].sort((a, b) => a.localeCompare(b));
   }
@@ -169,6 +186,7 @@
     animateCounters,
     bindDynamicEffects,
     compareRowsForState,
+    compareUrl,
     escapeHtml,
     filteredPlayerRows,
     formatNumber,
@@ -181,6 +199,7 @@
     renderAge,
     setUrlParams,
     slugify,
+    teamUrl,
     uniqueSorted
   };
 })();
