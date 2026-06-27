@@ -1040,7 +1040,7 @@
       min-width: 0;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      gap: clamp(22px, 3vw, 38px);
       align-items: start;
     }
 
@@ -1048,14 +1048,13 @@
       min-width: 0;
       min-height: 560px;
       display: grid;
-      gap: 16px;
-      padding: 18px;
-      border: 1px solid rgba(16, 24, 40, 0.08);
-      border-radius: 34px;
-      background: rgba(255, 255, 255, 0.7);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(18px);
+      gap: 18px;
       animation: sideIn 460ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .compare-side + .compare-side {
+      padding-left: clamp(22px, 3vw, 38px);
+      border-left: 1px solid rgba(148, 163, 184, 0.36);
     }
 
     .compare-picker-head {
@@ -1101,10 +1100,8 @@
 
     .selected-team-panel {
       min-width: 0;
-      overflow: hidden;
-      border-radius: 30px;
-      background: #fff;
-      box-shadow: var(--shadow-deep);
+      display: grid;
+      gap: 18px;
       animation: revealUp 460ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
 
@@ -1113,7 +1110,9 @@
       display: grid;
       align-content: end;
       min-height: 220px;
+      overflow: hidden;
       padding: 24px;
+      border-radius: 30px;
       background: var(--flag-bg);
       color: #fff;
       isolation: isolate;
@@ -1143,7 +1142,6 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      padding: 16px;
     }
 
     .metric-card {
@@ -1154,7 +1152,6 @@
 
     .compare-section {
       min-width: 0;
-      padding: 0 16px 16px;
     }
 
     .compare-section h3 {
@@ -1346,11 +1343,14 @@
 
     :root[data-theme="dark"] .eyebrow,
     :root[data-theme="dark"] .controls-panel,
-    :root[data-theme="dark"] .player-list-panel,
-    :root[data-theme="dark"] .compare-side {
+    :root[data-theme="dark"] .player-list-panel {
       border-color: var(--line);
       background: rgba(15, 23, 42, 0.72);
       box-shadow: var(--shadow-soft);
+    }
+
+    :root[data-theme="dark"] .compare-side + .compare-side {
+      border-color: rgba(148, 163, 184, 0.24);
     }
 
     :root[data-theme="dark"] input[type="search"],
@@ -1390,7 +1390,6 @@
       color: #d7dfec;
     }
 
-    :root[data-theme="dark"] .selected-team-panel,
     :root[data-theme="dark"] .metric-card {
       border-color: var(--line);
       background: rgba(15, 23, 42, 0.9);
@@ -1521,6 +1520,13 @@
       .country-grid,
       .compare-layout {
         grid-template-columns: 1fr;
+      }
+
+      .compare-side + .compare-side {
+        padding-top: 22px;
+        padding-left: 0;
+        border-top: 1px solid rgba(148, 163, 184, 0.36);
+        border-left: 0;
       }
 
       .country-card {
