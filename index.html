@@ -710,7 +710,7 @@
       gap: 7px;
     }
 
-    .table-card {
+    .player-list-panel {
       overflow: visible;
       border: 1px solid rgba(16, 24, 40, 0.08);
       border-radius: 30px;
@@ -719,7 +719,7 @@
       box-shadow: var(--shadow-deep);
     }
 
-    .table-head {
+    .list-head {
       min-height: 72px;
       display: flex;
       align-items: center;
@@ -729,7 +729,7 @@
       border-bottom: 1px solid rgba(16, 24, 40, 0.08);
     }
 
-    .table-title {
+    .list-title {
       font-size: clamp(1.3rem, 2vw, 2rem);
       font-weight: 1000;
     }
@@ -740,88 +740,65 @@
       font-weight: 800;
     }
 
-    .table-wrap {
-      max-height: none;
-      overflow: visible;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      min-width: 0;
-    }
-
-    th,
-    td {
-      padding: 18px 18px;
-      border-bottom: 1px solid rgba(16, 24, 40, 0.075);
-      text-align: left;
-      vertical-align: middle;
-      font-size: 0.94rem;
-    }
-
-    th {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      background: rgba(248, 250, 252, 0.96);
-      color: #475467;
-      font-size: 0.76rem;
-      font-weight: 1000;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      user-select: none;
-      backdrop-filter: blur(12px);
-    }
-
-    th.sortable {
-      cursor: pointer;
-    }
-
-    th.sortable:hover {
-      color: var(--blue);
-    }
-
-    tbody tr {
-      animation: rowIn 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-      animation-delay: calc(min(var(--i, 0), 18) * 24ms);
-      transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
-    }
-
-    tbody tr:hover {
-      background: rgba(37, 99, 235, 0.045);
-      transform: translateY(-1px);
-    }
-
-    .player-cell {
+    .list-actions {
       display: flex;
       align-items: center;
-      gap: 16px;
-      min-width: 270px;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .avatar {
-      flex: 0 0 auto;
-      width: 68px;
-      height: 68px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.46), transparent 36%),
-        linear-gradient(135deg, var(--team-a, #101828), var(--team-b, #475467));
+    .sort-controls {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .sort-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .sort-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 36px;
+      padding: 8px 12px;
+      border: 1px solid rgba(16, 24, 40, 0.1);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .sort-button span {
+      color: var(--muted);
+      font-size: 0.66rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+    }
+
+    .sort-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .sort-button.active {
+      border-color: #101828;
+      background: #101828;
       color: #fff;
-      font-weight: 1000;
-      font-size: 1rem;
-      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
     }
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .sort-button.active span {
+      color: rgba(255, 255, 255, 0.72);
     }
 
     .player-name {
@@ -883,29 +860,49 @@
       color: #344054;
     }
 
-    .mobile-cards {
-      display: none;
-      padding: 14px;
-      gap: 14px;
+    .player-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 640px), 1fr));
+      gap: clamp(18px, 2vw, 26px);
+      padding: clamp(18px, 2.4vw, 28px);
     }
 
     .player-card {
       display: grid;
-      grid-template-columns: minmax(190px, 36%) minmax(0, 1fr);
-      min-height: 250px;
+      grid-template-columns: minmax(260px, 38%) minmax(0, 1fr);
+      min-height: 320px;
       overflow: hidden;
       border: 1px solid rgba(16, 24, 40, 0.08);
-      border-radius: 24px;
+      border-radius: 28px;
       background: #fff;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+      box-shadow:
+        0 34px 52px rgba(15, 23, 42, 0.24),
+        0 15px 22px rgba(15, 23, 42, 0.13);
       animation: rowIn 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
       animation-delay: calc(min(var(--i, 0), 18) * 28ms);
+      transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 220ms ease;
+    }
+
+    .team-view .player-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team-view .player-card {
+      grid-template-columns: minmax(330px, 32%) minmax(0, 1fr);
+      min-height: 350px;
+    }
+
+    .player-card:hover {
+      transform: translateY(-8px);
+      box-shadow:
+        0 46px 72px rgba(15, 23, 42, 0.3),
+        0 22px 30px rgba(15, 23, 42, 0.16);
     }
 
     .player-photo {
       position: relative;
       isolation: isolate;
-      min-height: 100%;
+      min-height: clamp(300px, 24vw, 420px);
       display: grid;
       place-items: center;
       overflow: hidden;
@@ -944,9 +941,9 @@
     .player-card-content {
       min-width: 0;
       display: grid;
-      align-content: start;
-      gap: 16px;
-      padding: 20px;
+      align-content: center;
+      gap: 18px;
+      padding: clamp(22px, 2.4vw, 34px);
     }
 
     .player-card-heading {
@@ -957,7 +954,7 @@
     }
 
     .player-card .player-name {
-      font-size: clamp(1.18rem, 2.6vw, 1.55rem);
+      font-size: clamp(1.32rem, 2.1vw, 2.1rem);
     }
 
     .player-card .ovr {
@@ -969,18 +966,24 @@
 
     .player-card .notes {
       max-width: none;
-      font-size: 1rem;
+      font-size: clamp(1rem, 1.1vw, 1.08rem);
       line-height: 1.5;
     }
 
     .card-meta-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 12px;
-      margin: 14px 0;
       color: #344054;
       font-size: 0.88rem;
       font-weight: 760;
+    }
+
+    .card-meta-item {
+      min-width: 0;
+      padding: 12px;
+      border-radius: 16px;
+      background: #f8fafc;
     }
 
     .card-meta-grid b {
@@ -989,6 +992,12 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+    }
+
+    .card-meta-value {
+      margin-top: 4px;
+      color: var(--ink);
+      font-weight: 900;
     }
 
     .empty-state,
@@ -1180,7 +1189,7 @@
 
     :root[data-theme="dark"] .eyebrow,
     :root[data-theme="dark"] .controls-panel,
-    :root[data-theme="dark"] .table-card,
+    :root[data-theme="dark"] .player-list-panel,
     :root[data-theme="dark"] .compare-side {
       border-color: var(--line);
       background: rgba(15, 23, 42, 0.72);
@@ -1205,23 +1214,12 @@
       box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.16);
     }
 
-    :root[data-theme="dark"] .table-head,
-    :root[data-theme="dark"] th,
-    :root[data-theme="dark"] td {
+    :root[data-theme="dark"] .list-head {
       border-color: var(--line);
     }
 
-    :root[data-theme="dark"] th {
-      background: rgba(8, 15, 29, 0.94);
-      color: #aab7cb;
-    }
-
-    :root[data-theme="dark"] tbody tr:hover {
-      background: rgba(96, 165, 250, 0.1);
-    }
-
     :root[data-theme="dark"] .player-name,
-    :root[data-theme="dark"] .table-title,
+    :root[data-theme="dark"] .list-title,
     :root[data-theme="dark"] .compare-picker-head h2,
     :root[data-theme="dark"] .selected-team-title h2 {
       color: var(--ink);
@@ -1229,12 +1227,12 @@
 
     :root[data-theme="dark"] .notes,
     :root[data-theme="dark"] .card-meta-grid,
+    :root[data-theme="dark"] .card-meta-value,
     :root[data-theme="dark"] .rank-list li,
     :root[data-theme="dark"] .distribution-row {
       color: #d7dfec;
     }
 
-    :root[data-theme="dark"] .player-card,
     :root[data-theme="dark"] .selected-team-panel,
     :root[data-theme="dark"] .metric-card {
       border-color: var(--line);
@@ -1242,11 +1240,42 @@
       box-shadow: var(--shadow-soft);
     }
 
+    :root[data-theme="dark"] .player-card {
+      border-color: var(--line);
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow:
+        0 34px 52px rgba(0, 0, 0, 0.42),
+        0 15px 22px rgba(0, 0, 0, 0.3);
+    }
+
+    :root[data-theme="dark"] .player-card:hover {
+      box-shadow:
+        0 46px 72px rgba(0, 0, 0, 0.5),
+        0 22px 30px rgba(0, 0, 0, 0.34);
+    }
+
+    :root[data-theme="dark"] .card-meta-item,
     :root[data-theme="dark"] .pill,
     :root[data-theme="dark"] .rank-list li,
     :root[data-theme="dark"] .distribution-row {
       background: rgba(30, 41, 59, 0.92);
       color: #d7dfec;
+    }
+
+    :root[data-theme="dark"] .sort-button {
+      border-color: rgba(226, 232, 240, 0.12);
+      background: rgba(30, 41, 59, 0.72);
+      color: var(--ink);
+    }
+
+    :root[data-theme="dark"] .sort-button.active {
+      border-color: rgba(226, 232, 240, 0.82);
+      background: #eef4ff;
+      color: #0b1220;
+    }
+
+    :root[data-theme="dark"] .sort-button.active span {
+      color: rgba(11, 18, 32, 0.64);
     }
 
     :root[data-theme="dark"] .ovr.unknown {
@@ -1342,12 +1371,8 @@
         grid-template-columns: 1fr;
       }
 
-      .table-wrap {
-        display: none;
-      }
-
-      .mobile-cards {
-        display: grid;
+      .player-card-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1416,9 +1441,14 @@
         border-radius: 26px;
       }
 
-      .table-head {
+      .list-head {
         align-items: flex-start;
         flex-direction: column;
+      }
+
+      .list-actions,
+      .sort-controls {
+        justify-content: flex-start;
       }
 
       .mini-grid {
@@ -1426,6 +1456,10 @@
       }
 
       .player-card {
+        grid-template-columns: 1fr;
+      }
+
+      .team-view .player-card {
         grid-template-columns: 1fr;
       }
 
@@ -1800,10 +1834,8 @@
         .toUpperCase();
     }
 
-    function renderAvatar(row, size = "large") {
-      const headshot = row.headshot_url || "";
-      const img = headshot ? `<img src="${escapeHtml(headshot)}" alt="" loading="lazy" onerror="this.remove(); this.parentElement.textContent='${escapeHtml(initials(row.player))}'">` : escapeHtml(initials(row.player));
-      return `<div class="avatar ${size}" style="${styleVars(row.team)}" aria-hidden="true">${img}</div>`;
+    function renderAge(row) {
+      return row.age ? `Age ${escapeHtml(row.age)}` : "Age —";
     }
 
     function renderPlayerPhoto(row) {
@@ -1825,7 +1857,7 @@
     }
 
     function renderDataBoundaryNote() {
-      return `<p class="data-boundary-note">Data rule: inclusion type has been removed from the CSV and UI. Do not reintroduce it into cards, tables, filters, or compare views.</p>`;
+      return `<p class="data-boundary-note">Data rule: inclusion type has been removed from the CSV and UI. Do not reintroduce it into player cards, filters, or compare views.</p>`;
     }
 
     function routeTo(next) {
@@ -1919,7 +1951,7 @@
           ${size !== "mini" ? `
             <div class="hover-metadata">
               <span class="glass-pill">Score ${score}</span>
-              <span class="glass-pill">Top ${escapeHtml(stats.top ? stats.top.player : "—")}</span>
+              <span class="glass-pill">Top ${escapeHtml(stats.top ? `${stats.top.player} · ${renderAge(stats.top)}` : "—")}</span>
               <span class="glass-pill">${stats.count} players</span>
             </div>
           ` : ""}
@@ -1949,12 +1981,12 @@
               </div>
               <div class="hero-stats">
                 ${renderHeroStat("Avg OVR", formatNumber(stats.average), "Blank ratings excluded")}
-                ${renderHeroStat("Top Player", stats.top ? stats.top._ovr : "—", stats.top ? stats.top.player : "No rating")}
+                ${renderHeroStat("Top Player", stats.top ? stats.top._ovr : "—", stats.top ? `${stats.top.player} · ${renderAge(stats.top)}` : "No rating")}
               </div>
             </div>
           </section>
           ${renderDataBoundaryNote()}
-          ${renderTableCard(rows, `${team} Player Table`, `${stats.count} players in dataset`, {
+          ${renderPlayerList(rows, `${team} Player Cards`, `${stats.count} players in dataset`, {
             showTeam: false,
             showReset: false
           })}
@@ -1986,7 +2018,7 @@
           </section>
           ${renderControls(true)}
           ${renderDataBoundaryNote()}
-          ${renderTableCard(rows, "All Players", `${rows.length} visible players · ${state.rows.length} total`)}
+          ${renderPlayerList(rows, "All Players", `${rows.length} visible players · ${state.rows.length} total`)}
         </section>
       `;
     }
@@ -2005,7 +2037,7 @@
         <section class="controls-panel" aria-label="Player filters">
           <div class="control">
             <label for="searchInput">Search</label>
-            <input id="searchInput" data-search type="search" value="${escapeHtml(state.search)}" placeholder="Player, club, position, notes">
+            <input id="searchInput" data-search type="search" value="${escapeHtml(state.search)}" placeholder="Player, club, position, age, notes">
           </div>
           ${teamControl}
           ${renderSelect("club_country", "Club Country", "All club countries", uniqueSorted("club_country"))}
@@ -2045,6 +2077,7 @@
           row.club_country,
           row.club_with_country,
           row.position,
+          row.age,
           row.notes
         ].some((value) => String(value || "").toLowerCase().includes(q)));
       }
@@ -2055,12 +2088,14 @@
 
     function compareRows(a, b) {
       const dir = state.sortDir === "asc" ? 1 : -1;
-      if (state.sortKey === "fc26_ovr") {
-        const av = a._ovr;
-        const bv = b._ovr;
-        if (av === null && bv === null) return a.player.localeCompare(b.player);
-        if (av === null) return 1;
-        if (bv === null) return -1;
+      if (state.sortKey === "fc26_ovr" || state.sortKey === "age") {
+        const av = state.sortKey === "fc26_ovr" ? a._ovr : Number.parseInt(a.age || "", 10);
+        const bv = state.sortKey === "fc26_ovr" ? b._ovr : Number.parseInt(b.age || "", 10);
+        const aMissing = !Number.isFinite(av);
+        const bMissing = !Number.isFinite(bv);
+        if (aMissing && bMissing) return a.player.localeCompare(b.player);
+        if (aMissing) return 1;
+        if (bMissing) return -1;
         if (av !== bv) return (av - bv) * dir;
         return a.player.localeCompare(b.player);
       }
@@ -2070,39 +2105,26 @@
       return av.localeCompare(bv) * dir;
     }
 
-    function renderTableCard(rows, title, countText, options = {}) {
+    function renderPlayerList(rows, title, countText, options = {}) {
       const columnOptions = {
         showTeam: true,
         showReset: true,
         ...options
       };
       return `
-        <section class="table-card">
-          <div class="table-head">
+        <section class="player-list-panel">
+          <div class="list-head">
             <div>
-              <div class="table-title">${escapeHtml(title)}</div>
+              <div class="list-title">${escapeHtml(title)}</div>
               <div class="result-count">${escapeHtml(countText)}</div>
             </div>
-            ${columnOptions.showReset ? `<button class="ghost-button" type="button" data-reset-filters>Reset filters</button>` : ""}
+            <div class="list-actions">
+              ${renderSortControls(columnOptions)}
+              ${columnOptions.showReset ? `<button class="ghost-button" type="button" data-reset-filters>Reset filters</button>` : ""}
+            </div>
           </div>
           ${rows.length ? `
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th class="sortable" data-sort="player" data-label="Player">Player</th>
-                    ${columnOptions.showTeam ? `<th class="sortable" data-sort="team" data-label="Team">Team</th>` : ""}
-                    <th class="sortable" data-sort="club_with_country" data-label="Club">Club</th>
-                    <th class="sortable" data-sort="fc26_ovr" data-label="FC 26 OVR">FC 26 OVR</th>
-                    <th>Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${rows.map((row, index) => renderPlayerRow(row, index, columnOptions)).join("")}
-                </tbody>
-              </table>
-            </div>
-            <div class="mobile-cards">
+            <div class="player-card-grid">
               ${rows.map((row, index) => renderPlayerCard(row, index, columnOptions)).join("")}
             </div>
           ` : `<div class="empty-state">No players match the current filters.</div>`}
@@ -2110,34 +2132,47 @@
       `;
     }
 
-    function renderClub(row) {
+    function renderSortControls(options) {
+      const fields = [
+        { key: "fc26_ovr", label: "OVR" },
+        { key: "player", label: "Player" },
+        ...(options.showTeam ? [{ key: "team", label: "Country" }] : []),
+        { key: "position", label: "Position" },
+        { key: "age", label: "Age" },
+        { key: "club_with_country", label: "Club" }
+      ];
       return `
-        <div>${escapeHtml(row.club || "—")}</div>
-        ${row.club_country ? `<div class="meta"><span class="pill">${escapeHtml(row.club_country)}</span></div>` : ""}
+        <div class="sort-controls" aria-label="Sort players">
+          <span class="sort-label">Sort</span>
+          ${fields.map((field) => renderSortButton(field)).join("")}
+        </div>
       `;
     }
 
-    function renderPlayerRow(row, index, options) {
+    function renderSortButton(field) {
+      const active = state.sortKey === field.key;
+      const direction = active ? state.sortDir.toUpperCase() : "";
       return `
-        <tr style="--i: ${index};">
-          <td>
-            <div class="player-cell">
-              ${renderAvatar(row)}
-              <div>
-                <div class="player-name">${escapeHtml(row.player)}</div>
-                <div class="meta">${escapeHtml(row.position || "Position unknown")}</div>
-              </div>
-            </div>
-          </td>
-          ${options.showTeam ? `<td><span class="pill">${escapeHtml(row.team)}</span></td>` : ""}
-          <td>${renderClub(row)}</td>
-          <td>${renderOvr(row)}</td>
-          <td class="notes">${renderNotes(row.notes)}</td>
-        </tr>
+        <button class="sort-button ${active ? "active" : ""}" type="button" data-sort="${escapeHtml(field.key)}" aria-pressed="${active}">
+          ${escapeHtml(field.label)}${active ? ` <span>${escapeHtml(direction)}</span>` : ""}
+        </button>
+      `;
+    }
+
+    function renderCardMeta(label, value) {
+      return `
+        <div class="card-meta-item">
+          <b>${escapeHtml(label)}</b>
+          <div class="card-meta-value">${value || "—"}</div>
+        </div>
       `;
     }
 
     function renderPlayerCard(row, index, options) {
+      const position = escapeHtml(row.position || "Position unknown");
+      const team = escapeHtml(row.team || "—");
+      const club = escapeHtml(row.club || "—");
+      const clubCountry = escapeHtml(row.club_country || "—");
       return `
         <article class="player-card" style="--i: ${index};">
           ${renderPlayerPhoto(row)}
@@ -2145,12 +2180,15 @@
             <div class="player-card-heading">
               <div>
                 <div class="player-name">${escapeHtml(row.player)}</div>
-                <div class="meta">${options.showTeam ? `${escapeHtml(row.team)} · ` : ""}${escapeHtml(row.position || "Position unknown")}</div>
               </div>
               ${renderOvr(row)}
             </div>
             <div class="card-meta-grid">
-              <div><b>Club</b>${renderClub(row)}</div>
+              ${options.showTeam ? renderCardMeta("Country", team) : ""}
+              ${renderCardMeta("Position", position)}
+              ${renderCardMeta("Age", renderAge(row))}
+              ${renderCardMeta("Club", club)}
+              ${renderCardMeta("Club Country", clubCountry)}
             </div>
             <div class="notes">${renderNotes(row.notes)}</div>
           </div>
@@ -2220,7 +2258,7 @@
             <div class="metrics-grid">
               ${renderMetric("Avg OVR", formatNumber(stats.average), "Mean of rated rows")}
               ${renderMetric("Median OVR", formatNumber(stats.median), "Middle rating")}
-              ${renderMetric("Top Player", stats.top ? stats.top.player : "—", stats.top ? `${stats.top._ovr} OVR` : "No rating")}
+              ${renderMetric("Top Player", stats.top ? stats.top.player : "—", stats.top ? `${stats.top._ovr} OVR · ${renderAge(stats.top)}` : "No rating")}
               ${renderMetric("85+ / 90+", `${stats.stars85} / ${stats.elite90}`, "Star and elite counts")}
             </div>
             <div class="compare-section">
@@ -2229,7 +2267,7 @@
             <div class="compare-section">
               <h3>Top 5 Players</h3>
               <ol class="rank-list">
-                ${stats.topFive.map((row, index) => `<li style="--i: ${index};"><span>${index + 1}. ${escapeHtml(row.player)}</span><strong>${row._ovr}</strong></li>`).join("") || "<li>No ratings collected</li>"}
+                ${stats.topFive.map((row, index) => `<li style="--i: ${index};"><span>${index + 1}. ${escapeHtml(row.player)} · ${renderAge(row)}</span><strong>${row._ovr}</strong></li>`).join("") || "<li>No ratings collected</li>"}
               </ol>
             </div>
             <div class="compare-section">
@@ -2292,6 +2330,7 @@
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduceMotion) return;
       document.querySelectorAll("[data-count]").forEach((node) => {
+        if (!node.dataset.count.trim()) return;
         const target = Number(node.dataset.count);
         if (!Number.isFinite(target)) return;
         const decimals = String(node.textContent).includes(".") ? 1 : 0;
@@ -2374,9 +2413,9 @@
           return;
         }
 
-        const sortHeader = event.target.closest("th.sortable");
-        if (sortHeader) {
-          const key = sortHeader.dataset.sort;
+        const sortControl = event.target.closest("[data-sort]");
+        if (sortControl) {
+          const key = sortControl.dataset.sort;
           if (state.sortKey === key) {
             state.sortDir = state.sortDir === "asc" ? "desc" : "asc";
           } else {

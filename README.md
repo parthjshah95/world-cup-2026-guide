@@ -1,6 +1,6 @@
 # World Cup 2026 Player Guide
 
-Static interactive HTML app for browsing and comparing World Cup player tables from `world_cup_player_tables_collected.csv`.
+Static interactive HTML app for browsing and comparing World Cup player cards from `world_cup_player_tables_collected.csv`.
 
 ## Run Locally
 
@@ -29,9 +29,9 @@ REGION=us-central1 SERVICE_NAME=world-cup-2026-guide ./scripts/deploy-gcloud.sh
 ## Features
 
 - Premium flag-card home page
-- Country detail pages with full-width player tables
+- Country detail pages with card-based player lists
 - Head-to-head country comparison
 - Global top players view
-- Search, lean filters, sortable columns, and OVR bands
+- Search, lean filters, sort controls, player ages, and OVR bands
 - Static CSV source with no build system
 - Local SVG flag backgrounds for all 48 qualified teams, sourced from FlagCDN
