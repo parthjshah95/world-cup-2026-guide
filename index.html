@@ -411,7 +411,7 @@
       transform-origin: center center;
       transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 280ms ease, filter 280ms ease;
       will-change: transform, box-shadow, filter;
-      animation: cardIn 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      animation: cardIn 520ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
       animation-delay: calc(var(--i, 0) * 70ms);
     }
 
@@ -440,18 +440,22 @@
     }
 
     .country-card:hover,
-    .mini-country-card:hover {
+    .country-card:focus-visible,
+    .mini-country-card:hover,
+    .mini-country-card:focus-visible {
       z-index: 4;
-      transform: translate3d(0, -18px, 70px) scale(1.07) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+      transform: translate3d(0, -5px, 16px) scale(1.015) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
       box-shadow:
-        0 72px 96px rgba(15, 23, 42, 0.36),
-        0 34px 42px rgba(15, 23, 42, 0.24),
-        0 10px 18px rgba(15, 23, 42, 0.14);
-      filter: saturate(1.12) contrast(1.04);
+        0 38px 54px rgba(15, 23, 42, 0.24),
+        0 16px 22px rgba(15, 23, 42, 0.15),
+        0 5px 10px rgba(15, 23, 42, 0.08);
+      filter: saturate(1.04) contrast(1.01);
     }
 
     .country-card:hover::after,
-    .mini-country-card:hover::after {
+    .country-card:focus-visible::after,
+    .mini-country-card:hover::after,
+    .mini-country-card:focus-visible::after {
       transform: translateX(130%);
     }
 
@@ -482,7 +486,8 @@
       transition: opacity 220ms ease, transform 220ms ease;
     }
 
-    .country-card:hover .hover-metadata {
+    .country-card:hover .hover-metadata,
+    .country-card:focus-visible .hover-metadata {
       opacity: 1;
       transform: translateY(0);
     }
