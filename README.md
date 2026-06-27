@@ -32,6 +32,6 @@ REGION=us-central1 SERVICE_NAME=world-cup-2026-guide ./scripts/deploy-gcloud.sh
 - Country detail pages with full-width player tables
 - Head-to-head country comparison
 - Global top players view
-- Search, filters, sortable columns, OVR bands, confidence markers
+- Search, lean filters, sortable columns, and OVR bands
 - Static CSV source with no build system
 - Local SVG flag backgrounds for all 48 qualified teams, sourced from FlagCDN

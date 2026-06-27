@@ -22,7 +22,6 @@ Core fields:
 - `club_with_country`
 - `position`
 - `fc26_ovr`
-- `inclusion_type`
 - `rating_source`
 - `rating_confidence`
 - `notes`
@@ -57,6 +56,8 @@ For the all-team expansion:
 - Rows without a rating match keep blank `fc26_ovr` and are marked `rating_confidence = unknown`.
 
 ## Confidence Rules
+
+`rating_confidence` is retained for data-quality review only. It should not be rendered as a player-card field, table column, or filter control.
 
 - `high`: rating from official EA page and squad/club from official or major reliable source.
 - `medium`: rating matched from a structured ratings source and club/player identity looked consistent.
