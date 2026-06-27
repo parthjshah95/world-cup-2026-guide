@@ -299,18 +299,6 @@
       font-weight: 1000;
     }
 
-    .country-code {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 1rem;
-      font-weight: 950;
-      letter-spacing: 0.16em;
-    }
-
-    .country-emoji {
-      font-size: 3.1rem;
-      filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.28));
-    }
-
     .hover-metadata {
       position: absolute;
       left: 28px;
@@ -433,12 +421,6 @@
       align-items: end;
     }
 
-    .hero-flag {
-      font-size: clamp(3rem, 8vw, 7.4rem);
-      line-height: 1;
-      filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.28));
-    }
-
     .team-title {
       margin: 6px 0 0;
       font-size: clamp(3.2rem, 9vw, 9rem);
@@ -446,18 +428,11 @@
       text-shadow: 0 20px 42px rgba(0, 0, 0, 0.22);
     }
 
-    .team-code {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: clamp(1rem, 2vw, 1.8rem);
-      font-weight: 1000;
-      letter-spacing: 0.18em;
-    }
-
     .hero-stats {
       display: grid;
-      grid-template-columns: repeat(4, minmax(130px, 1fr));
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
       gap: 12px;
-      min-width: min(760px, 100%);
+      min-width: min(520px, 100%);
     }
 
     .hero-stat,
@@ -817,10 +792,6 @@
 
     .mini-country-card .country-name {
       font-size: 1.35rem;
-    }
-
-    .mini-country-card .country-emoji {
-      font-size: 2rem;
     }
 
     .selected-team-panel {
@@ -1473,7 +1444,6 @@
     }
 
     function renderCountryCard(team, index, size) {
-      const meta = getMeta(team);
       const stats = teamStats(team);
       const className = size === "mini" ? "mini-country-card" : "country-card";
       return `
@@ -1487,10 +1457,8 @@
           ` : ""}
           <span class="country-card-content">
             <span>
-              <span class="country-code">${escapeHtml(meta.code)}</span>
               <span class="country-name">${escapeHtml(team)}</span>
             </span>
-            <span class="country-emoji">${meta.flagEmoji}</span>
           </span>
         </button>
       `;
@@ -1498,31 +1466,26 @@
 
     function renderTeamView() {
       const team = state.team;
-      const meta = getMeta(team);
       const stats = teamStats(team);
-      const rows = filteredPlayerRows(teamRows(team), false);
+      const rows = [...teamRows(team)].sort(compareRows);
       els.app.innerHTML = `
         <section class="view team-view">
           <section class="team-hero" style="${styleVars(team)}">
             <div class="team-hero-content">
               <div>
-                <div class="hero-flag">${meta.flagEmoji}</div>
-                <div class="team-code">${escapeHtml(meta.code)}</div>
                 <h1 class="team-title">${escapeHtml(team)}</h1>
               </div>
               <div class="hero-stats">
                 ${renderHeroStat("Avg OVR", formatNumber(stats.average), "Blank ratings excluded")}
                 ${renderHeroStat("Top Player", stats.top ? stats.top._ovr : "—", stats.top ? stats.top.player : "No rating")}
-                ${renderHeroStat("85+ Players", stats.stars85, "Star band")}
-                ${renderHeroStat("Dataset", stats.count, `${stats.ratedCount} rated`)}
               </div>
             </div>
           </section>
-          ${renderControls(false)}
           ${renderTableCard(rows, `${team} Player Table`, `${rows.length} visible players · ${stats.count} on team`, {
             showTeam: false,
             showInclusion: false,
-            showSource: false
+            showSource: false,
+            showReset: false
           })}
           <p class="fine-print">Low-confidence rows are marked. Future iterations can add per-row source URLs for stricter provenance.</p>
         </section>
@@ -1644,6 +1607,7 @@
         showTeam: true,
         showInclusion: true,
         showSource: true,
+        showReset: true,
         ...options
       };
       return `
@@ -1653,7 +1617,7 @@
               <div class="table-title">${escapeHtml(title)}</div>
               <div class="result-count">${escapeHtml(countText)}</div>
             </div>
-            <button class="ghost-button" type="button" data-reset-filters>Reset filters</button>
+            ${columnOptions.showReset ? `<button class="ghost-button" type="button" data-reset-filters>Reset filters</button>` : ""}
           </div>
           ${rows.length ? `
             <div class="table-wrap">
@@ -1785,7 +1749,6 @@
     }
 
     function renderSelectedTeam(side, team) {
-      const meta = getMeta(team);
       const stats = teamStats(team);
       return `
         <section class="compare-side">
@@ -1793,10 +1756,8 @@
             <div class="selected-team-flag" style="${styleVars(team)}">
               <div class="selected-team-title">
                 <div>
-                  <div class="team-code">${escapeHtml(meta.code)}</div>
                   <h2>${escapeHtml(team)}</h2>
                 </div>
-                <span class="hero-flag">${meta.flagEmoji}</span>
               </div>
             </div>
             <div class="metrics-grid">
