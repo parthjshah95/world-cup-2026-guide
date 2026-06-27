@@ -367,6 +367,10 @@
       font-weight: 1000;
     }
 
+    h2 {
+      margin-top: clamp(10px, 1.4vw, 16px);
+    }
+
     .country-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2408,7 +2412,6 @@
       els.app.innerHTML = `
         <section class="view compare-view">
           <div class="hero-copy">
-            <div class="eyebrow">Head-to-head</div>
             <h1>Compare countries side by side.</h1>
           </div>
           <div class="compare-layout">
