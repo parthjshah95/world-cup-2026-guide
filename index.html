@@ -36,6 +36,9 @@
       --brick: #9f3412;
       --slate: #475467;
       --header-height: 76px;
+      --card-hover-depth: 3px;
+      --card-hover-lift: -1.5px;
+      --card-hover-scale: 1.003;
     }
 
     :root[data-theme="dark"] {
@@ -436,7 +439,7 @@
     .mini-country-card:hover,
     .mini-country-card:focus-visible {
       z-index: 4;
-      transform: translate3d(0, -3px, 6px) scale(1.006) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+      transform: translate3d(0, var(--card-hover-lift), var(--card-hover-depth)) scale(var(--card-hover-scale)) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
       box-shadow:
         0 36px 56px rgba(15, 23, 42, 0.25),
         0 16px 22px rgba(15, 23, 42, 0.14),
@@ -1753,6 +1756,7 @@
 
     const teamMeta = Object.fromEntries(qualifiedTeamFlags.map((team) => [team.name, team]));
     const preferredTeams = qualifiedTeamFlags.map((team) => team.name);
+    const cardTiltDegrees = 0.2;
 
     const state = {
       rows: [],
@@ -2526,8 +2530,8 @@
           const y = ((event.clientY - rect.top) / rect.height) * 100;
           card.style.setProperty("--mx", `${x}%`);
           card.style.setProperty("--my", `${y}%`);
-          card.style.setProperty("--tilt-x", `${(x - 50) / 20}deg`);
-          card.style.setProperty("--tilt-y", `${(50 - y) / 20}deg`);
+          card.style.setProperty("--tilt-x", `${((x - 50) / 50) * cardTiltDegrees}deg`);
+          card.style.setProperty("--tilt-y", `${((50 - y) / 50) * cardTiltDegrees}deg`);
         });
         card.addEventListener("pointerleave", () => {
           card.style.removeProperty("--tilt-x");
