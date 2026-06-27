@@ -1000,6 +1000,34 @@
       font-weight: 900;
     }
 
+    .club-chip {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.09);
+      color: #1d4ed8;
+      font-size: 0.84rem;
+      font-weight: 950;
+      line-height: 1.2;
+    }
+
+    .club-chip span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .club-chip small {
+      flex: 0 0 auto;
+      color: #344054;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
     .empty-state,
     .load-state {
       padding: 38px;
@@ -1384,12 +1412,17 @@
     }
 
     :root[data-theme="dark"] .card-meta-item,
+    :root[data-theme="dark"] .club-chip,
     :root[data-theme="dark"] .pill,
     :root[data-theme="dark"] .rank-list li,
     :root[data-theme="dark"] .compact-empty-state,
     :root[data-theme="dark"] .distribution-row {
       background: rgba(30, 41, 59, 0.92);
       color: #d7dfec;
+    }
+
+    :root[data-theme="dark"] .club-chip small {
+      color: #99a6ba;
     }
 
     :root[data-theme="dark"] .sort-button {
@@ -2315,11 +2348,15 @@
       `;
     }
 
+    function renderClubChip(row) {
+      const club = escapeHtml(row.club || "Club unknown");
+      const country = row.club_country ? `<small> · ${escapeHtml(row.club_country)}</small>` : "";
+      return `<span class="club-chip"><span>${club}</span>${country}</span>`;
+    }
+
     function renderPlayerCard(row, index, options) {
       const position = escapeHtml(row.position || "Position unknown");
       const team = escapeHtml(row.team || "—");
-      const club = escapeHtml(row.club || "—");
-      const clubCountry = escapeHtml(row.club_country || "—");
       return `
         <article class="player-card" style="--i: ${index};">
           ${renderPlayerPhoto(row)}
@@ -2334,8 +2371,7 @@
               ${options.showTeam ? renderCardMeta("Country", team) : ""}
               ${renderCardMeta("Position", position)}
               ${renderCardMeta("Age", renderAge(row))}
-              ${renderCardMeta("Club", club)}
-              ${renderCardMeta("Club Country", clubCountry)}
+              ${renderCardMeta("Club", renderClubChip(row))}
             </div>
             <div class="notes">${renderNotes(row.notes)}</div>
           </div>
@@ -2359,8 +2395,7 @@
               ${renderOvr(row)}
             </div>
             <div class="card-meta-grid compare-player-meta">
-              ${renderCardMeta("Club", escapeHtml(row.club || "—"))}
-              ${row.club_country ? renderCardMeta("Club Country", `<span class="pill">${escapeHtml(row.club_country)}</span>`) : ""}
+              ${renderCardMeta("Club", renderClubChip(row))}
             </div>
             <div class="notes">${renderNotes(row.notes)}</div>
           </div>
