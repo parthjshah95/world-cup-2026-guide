@@ -1,12 +1,12 @@
 # Data Methodology
 
-This dataset is a prototype seed dataset for an interactive World Cup player-comparison app. It is not a fully audited sports database.
+This dataset powers the interactive World Cup player-comparison app. It is not a fully audited sports database.
 
 ## Current CSV Scope
 
 `world_cup_player_tables_collected.csv` combines two collection passes:
 
-- The original seven-team curated watchlists for Uruguay, Spain, Argentina, France, England, Portugal, and Brazil.
+- The original seven-team curated player sets for Uruguay, Spain, Argentina, France, England, Portugal, and Brazil.
 - A generated 48-team expansion built from current 2026 World Cup squad tables plus FC 26 rating matches.
 
 Rows should be treated as selected notable/core player rows, not as a definitive complete scouting database.
@@ -56,7 +56,7 @@ For the all-team expansion:
 - Squad, position, and club seed data came from the current 2026 FIFA World Cup squads page.
 - FC 26 OVR, rating URL, and headshot URL were matched from the FC Ratings search index.
 - The original seven curated teams were preserved rather than overwritten.
-- Missing-team rows were generated as ratings-led 15-player watchlists from each final squad, with at least one goalkeeper included when available.
+- Missing-team rows were generated as ratings-led 15-player team datasets from each final squad, with at least one goalkeeper included when available.
 - Rows matched through FC Ratings are marked `rating_source = third_party_fc_database`.
 - Rows without a rating match keep blank `fc26_ovr` and are marked `rating_confidence = unknown`.
 
@@ -79,4 +79,4 @@ Player ages were computed from date-of-birth values as of `2026-06-27`.
 
 ## App Data Note
 
-FC 26 ratings are base overall ratings, not Ultimate Team promo or special-card ratings. Current clubs and player selections are manually curated/generated prototype data unless row-level source URLs are present.
+FC 26 ratings are base overall ratings, not Ultimate Team promo or special-card ratings. Current clubs and player selections are manually curated/generated app data unless row-level source URLs are present.
