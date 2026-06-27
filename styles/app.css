@@ -151,8 +151,10 @@ button {
   flex: 0 1 auto;
   gap: 8px;
   max-width: 100%;
-  padding: 0;
+  margin: -22px -8px -46px;
+  padding: 22px 8px 46px;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .nav-button,
@@ -1504,8 +1506,6 @@ label {
   }
 
   .nav {
-    margin: -16px -8px -30px;
-    padding: 16px 8px 30px;
     width: auto;
   }
 
