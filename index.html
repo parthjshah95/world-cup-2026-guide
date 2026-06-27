@@ -1083,50 +1083,58 @@
   <script>
     const preferredTeams = ["Uruguay", "Spain", "Argentina", "France", "England", "Portugal", "Brazil"];
 
-    const teamMeta = {
-      Uruguay: {
-        code: "URU",
-        flagEmoji: "🇺🇾",
-        colors: ["#0ea5e9", "#ffffff"],
-        flagCss: "linear-gradient(180deg, #ffffff 0 11.11%, #60a5fa 11.11% 22.22%, #ffffff 22.22% 33.33%, #60a5fa 33.33% 44.44%, #ffffff 44.44% 55.55%, #60a5fa 55.55% 66.66%, #ffffff 66.66% 77.77%, #60a5fa 77.77% 88.88%, #ffffff 88.88% 100%)"
-      },
-      Spain: {
-        code: "ESP",
-        flagEmoji: "🇪🇸",
-        colors: ["#aa151b", "#f1bf00"],
-        flagCss: "linear-gradient(180deg, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75% 100%)"
-      },
-      Argentina: {
-        code: "ARG",
-        flagEmoji: "🇦🇷",
-        colors: ["#74acdf", "#ffffff"],
-        flagCss: "linear-gradient(180deg, #74acdf 0 33.33%, #ffffff 33.33% 66.66%, #74acdf 66.66% 100%)"
-      },
-      France: {
-        code: "FRA",
-        flagEmoji: "🇫🇷",
-        colors: ["#002654", "#ed2939"],
-        flagCss: "linear-gradient(90deg, #002654 0 33.33%, #ffffff 33.33% 66.66%, #ed2939 66.66% 100%)"
-      },
-      England: {
-        code: "ENG",
-        flagEmoji: "🏴",
-        colors: ["#ffffff", "#cf142b"],
-        flagCss: "linear-gradient(90deg, transparent 0 43%, #cf142b 43% 57%, transparent 57% 100%), linear-gradient(180deg, #ffffff 0 40%, #cf142b 40% 60%, #ffffff 60% 100%)"
-      },
-      Portugal: {
-        code: "POR",
-        flagEmoji: "🇵🇹",
-        colors: ["#006600", "#ff0000"],
-        flagCss: "linear-gradient(90deg, #006600 0 40%, #ff0000 40% 100%)"
-      },
-      Brazil: {
-        code: "BRA",
-        flagEmoji: "🇧🇷",
-        colors: ["#009b3a", "#002776"],
-        flagCss: "radial-gradient(circle at 50% 50%, #002776 0 16%, transparent 16.5%), linear-gradient(45deg, transparent 28%, #ffdf00 28% 50%, transparent 50%), linear-gradient(135deg, transparent 28%, #ffdf00 28% 50%, transparent 50%), #009b3a"
-      }
-    };
+    const qualifiedTeamFlags = [
+      { name: "Mexico", group: "A", code: "MEX", flagUrl: "assets/flags/mexico.svg", colors: ["#006847", "#ce1126"] },
+      { name: "South Africa", group: "A", code: "RSA", flagUrl: "assets/flags/south-africa.svg", colors: ["#007a4d", "#de3831"] },
+      { name: "South Korea", group: "A", code: "KOR", flagUrl: "assets/flags/south-korea.svg", colors: ["#ffffff", "#c60c30"] },
+      { name: "Czech Republic", group: "A", code: "CZE", flagUrl: "assets/flags/czech-republic.svg", colors: ["#11457e", "#d7141a"] },
+      { name: "Canada", group: "B", code: "CAN", flagUrl: "assets/flags/canada.svg", colors: ["#ff0000", "#ffffff"] },
+      { name: "Bosnia and Herzegovina", group: "B", code: "BIH", flagUrl: "assets/flags/bosnia-and-herzegovina.svg", colors: ["#002395", "#fecb00"] },
+      { name: "Qatar", group: "B", code: "QAT", flagUrl: "assets/flags/qatar.svg", colors: ["#8a1538", "#ffffff"] },
+      { name: "Switzerland", group: "B", code: "SUI", flagUrl: "assets/flags/switzerland.svg", colors: ["#ff0000", "#ffffff"] },
+      { name: "Brazil", group: "C", code: "BRA", flagUrl: "assets/flags/brazil.svg", colors: ["#009b3a", "#002776"] },
+      { name: "Morocco", group: "C", code: "MAR", flagUrl: "assets/flags/morocco.svg", colors: ["#c1272d", "#006233"] },
+      { name: "Haiti", group: "C", code: "HAI", flagUrl: "assets/flags/haiti.svg", colors: ["#00209f", "#d21034"] },
+      { name: "Scotland", group: "C", code: "SCO", flagUrl: "assets/flags/scotland.svg", colors: ["#005eb8", "#ffffff"] },
+      { name: "United States", group: "D", code: "USA", flagUrl: "assets/flags/united-states.svg", colors: ["#3c3b6e", "#b22234"] },
+      { name: "Paraguay", group: "D", code: "PAR", flagUrl: "assets/flags/paraguay.svg", colors: ["#0038a8", "#d52b1e"] },
+      { name: "Australia", group: "D", code: "AUS", flagUrl: "assets/flags/australia.svg", colors: ["#012169", "#e4002b"] },
+      { name: "Türkiye", group: "D", code: "TUR", flagUrl: "assets/flags/t-rkiye.svg", colors: ["#e30a17", "#ffffff"] },
+      { name: "Germany", group: "E", code: "GER", flagUrl: "assets/flags/germany.svg", colors: ["#000000", "#dd0000"] },
+      { name: "Curaçao", group: "E", code: "CUW", flagUrl: "assets/flags/cura-ao.svg", colors: ["#002b7f", "#f9e814"] },
+      { name: "Ivory Coast", group: "E", code: "CIV", flagUrl: "assets/flags/ivory-coast.svg", colors: ["#ff8200", "#009a44"] },
+      { name: "Ecuador", group: "E", code: "ECU", flagUrl: "assets/flags/ecuador.svg", colors: ["#ffdd00", "#034ea2"] },
+      { name: "Netherlands", group: "F", code: "NED", flagUrl: "assets/flags/netherlands.svg", colors: ["#ae1c28", "#21468b"] },
+      { name: "Japan", group: "F", code: "JPN", flagUrl: "assets/flags/japan.svg", colors: ["#ffffff", "#bc002d"] },
+      { name: "Sweden", group: "F", code: "SWE", flagUrl: "assets/flags/sweden.svg", colors: ["#006aa7", "#fecc00"] },
+      { name: "Tunisia", group: "F", code: "TUN", flagUrl: "assets/flags/tunisia.svg", colors: ["#e70013", "#ffffff"] },
+      { name: "Belgium", group: "G", code: "BEL", flagUrl: "assets/flags/belgium.svg", colors: ["#000000", "#fae042"] },
+      { name: "Egypt", group: "G", code: "EGY", flagUrl: "assets/flags/egypt.svg", colors: ["#ce1126", "#000000"] },
+      { name: "Iran", group: "G", code: "IRN", flagUrl: "assets/flags/iran.svg", colors: ["#239f40", "#da0000"] },
+      { name: "New Zealand", group: "G", code: "NZL", flagUrl: "assets/flags/new-zealand.svg", colors: ["#00247d", "#cc142b"] },
+      { name: "Spain", group: "H", code: "ESP", flagUrl: "assets/flags/spain.svg", colors: ["#aa151b", "#f1bf00"] },
+      { name: "Cape Verde", group: "H", code: "CPV", flagUrl: "assets/flags/cape-verde.svg", colors: ["#003893", "#cf2027"] },
+      { name: "Saudi Arabia", group: "H", code: "KSA", flagUrl: "assets/flags/saudi-arabia.svg", colors: ["#006c35", "#ffffff"] },
+      { name: "Uruguay", group: "H", code: "URU", flagUrl: "assets/flags/uruguay.svg", colors: ["#0ea5e9", "#ffffff"] },
+      { name: "France", group: "I", code: "FRA", flagUrl: "assets/flags/france.svg", colors: ["#002654", "#ed2939"] },
+      { name: "Senegal", group: "I", code: "SEN", flagUrl: "assets/flags/senegal.svg", colors: ["#00853f", "#e31b23"] },
+      { name: "Iraq", group: "I", code: "IRQ", flagUrl: "assets/flags/iraq.svg", colors: ["#ce1126", "#000000"] },
+      { name: "Norway", group: "I", code: "NOR", flagUrl: "assets/flags/norway.svg", colors: ["#ba0c2f", "#00205b"] },
+      { name: "Argentina", group: "J", code: "ARG", flagUrl: "assets/flags/argentina.svg", colors: ["#74acdf", "#ffffff"] },
+      { name: "Algeria", group: "J", code: "ALG", flagUrl: "assets/flags/algeria.svg", colors: ["#006233", "#d21034"] },
+      { name: "Austria", group: "J", code: "AUT", flagUrl: "assets/flags/austria.svg", colors: ["#ed2939", "#ffffff"] },
+      { name: "Jordan", group: "J", code: "JOR", flagUrl: "assets/flags/jordan.svg", colors: ["#007a3d", "#ce1126"] },
+      { name: "Portugal", group: "K", code: "POR", flagUrl: "assets/flags/portugal.svg", colors: ["#006600", "#ff0000"] },
+      { name: "DR Congo", group: "K", code: "COD", flagUrl: "assets/flags/dr-congo.svg", colors: ["#007fff", "#ce1021"] },
+      { name: "Uzbekistan", group: "K", code: "UZB", flagUrl: "assets/flags/uzbekistan.svg", colors: ["#1eb53a", "#0099b5"] },
+      { name: "Colombia", group: "K", code: "COL", flagUrl: "assets/flags/colombia.svg", colors: ["#fcd116", "#003893"] },
+      { name: "England", group: "L", code: "ENG", flagUrl: "assets/flags/england.svg", colors: ["#ffffff", "#cf142b"] },
+      { name: "Croatia", group: "L", code: "CRO", flagUrl: "assets/flags/croatia.svg", colors: ["#ff0000", "#171796"] },
+      { name: "Ghana", group: "L", code: "GHA", flagUrl: "assets/flags/ghana.svg", colors: ["#ce1126", "#006b3f"] },
+      { name: "Panama", group: "L", code: "PAN", flagUrl: "assets/flags/panama.svg", colors: ["#005293", "#d21034"] },
+    ];
+
+    const teamMeta = Object.fromEntries(qualifiedTeamFlags.map((team) => [team.name, team]));
 
     const state = {
       rows: [],
@@ -1250,15 +1258,16 @@
     function getMeta(team) {
       return teamMeta[team] || {
         code: team.slice(0, 3).toUpperCase(),
-        flagEmoji: "🏳",
         colors: ["#101828", "#667085"],
-        flagCss: "linear-gradient(135deg, #101828, #667085)"
+        flagUrl: ""
       };
     }
 
     function styleVars(team) {
       const meta = getMeta(team);
-      return `--flag-bg: ${meta.flagCss}; --team-a: ${meta.colors[0]}; --team-b: ${meta.colors[1]};`;
+      const fallback = `linear-gradient(135deg, ${meta.colors[0]}, ${meta.colors[1]})`;
+      const flagBg = meta.flagUrl ? `url('${meta.flagUrl}') center/cover no-repeat, ${fallback}` : fallback;
+      return `--flag-bg: ${flagBg}; --team-a: ${meta.colors[0]}; --team-b: ${meta.colors[1]};`;
     }
 
     function teamRows(team) {

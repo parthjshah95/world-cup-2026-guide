@@ -1,0 +1,338 @@
+[
+  {
+    "group": "A",
+    "team": "Mexico",
+    "flag_code": "mx",
+    "file": "assets/flags/mexico.svg",
+    "source_url": "https://flagcdn.com/mx.svg"
+  },
+  {
+    "group": "A",
+    "team": "South Africa",
+    "flag_code": "za",
+    "file": "assets/flags/south-africa.svg",
+    "source_url": "https://flagcdn.com/za.svg"
+  },
+  {
+    "group": "A",
+    "team": "South Korea",
+    "flag_code": "kr",
+    "file": "assets/flags/south-korea.svg",
+    "source_url": "https://flagcdn.com/kr.svg"
+  },
+  {
+    "group": "A",
+    "team": "Czech Republic",
+    "flag_code": "cz",
+    "file": "assets/flags/czech-republic.svg",
+    "source_url": "https://flagcdn.com/cz.svg"
+  },
+  {
+    "group": "B",
+    "team": "Canada",
+    "flag_code": "ca",
+    "file": "assets/flags/canada.svg",
+    "source_url": "https://flagcdn.com/ca.svg"
+  },
+  {
+    "group": "B",
+    "team": "Bosnia and Herzegovina",
+    "flag_code": "ba",
+    "file": "assets/flags/bosnia-and-herzegovina.svg",
+    "source_url": "https://flagcdn.com/ba.svg"
+  },
+  {
+    "group": "B",
+    "team": "Qatar",
+    "flag_code": "qa",
+    "file": "assets/flags/qatar.svg",
+    "source_url": "https://flagcdn.com/qa.svg"
+  },
+  {
+    "group": "B",
+    "team": "Switzerland",
+    "flag_code": "ch",
+    "file": "assets/flags/switzerland.svg",
+    "source_url": "https://flagcdn.com/ch.svg"
+  },
+  {
+    "group": "C",
+    "team": "Brazil",
+    "flag_code": "br",
+    "file": "assets/flags/brazil.svg",
+    "source_url": "https://flagcdn.com/br.svg"
+  },
+  {
+    "group": "C",
+    "team": "Morocco",
+    "flag_code": "ma",
+    "file": "assets/flags/morocco.svg",
+    "source_url": "https://flagcdn.com/ma.svg"
+  },
+  {
+    "group": "C",
+    "team": "Haiti",
+    "flag_code": "ht",
+    "file": "assets/flags/haiti.svg",
+    "source_url": "https://flagcdn.com/ht.svg"
+  },
+  {
+    "group": "C",
+    "team": "Scotland",
+    "flag_code": "gb-sct",
+    "file": "assets/flags/scotland.svg",
+    "source_url": "https://flagcdn.com/gb-sct.svg"
+  },
+  {
+    "group": "D",
+    "team": "United States",
+    "flag_code": "us",
+    "file": "assets/flags/united-states.svg",
+    "source_url": "https://flagcdn.com/us.svg"
+  },
+  {
+    "group": "D",
+    "team": "Paraguay",
+    "flag_code": "py",
+    "file": "assets/flags/paraguay.svg",
+    "source_url": "https://flagcdn.com/py.svg"
+  },
+  {
+    "group": "D",
+    "team": "Australia",
+    "flag_code": "au",
+    "file": "assets/flags/australia.svg",
+    "source_url": "https://flagcdn.com/au.svg"
+  },
+  {
+    "group": "D",
+    "team": "Türkiye",
+    "flag_code": "tr",
+    "file": "assets/flags/t-rkiye.svg",
+    "source_url": "https://flagcdn.com/tr.svg"
+  },
+  {
+    "group": "E",
+    "team": "Germany",
+    "flag_code": "de",
+    "file": "assets/flags/germany.svg",
+    "source_url": "https://flagcdn.com/de.svg"
+  },
+  {
+    "group": "E",
+    "team": "Curaçao",
+    "flag_code": "cw",
+    "file": "assets/flags/cura-ao.svg",
+    "source_url": "https://flagcdn.com/cw.svg"
+  },
+  {
+    "group": "E",
+    "team": "Ivory Coast",
+    "flag_code": "ci",
+    "file": "assets/flags/ivory-coast.svg",
+    "source_url": "https://flagcdn.com/ci.svg"
+  },
+  {
+    "group": "E",
+    "team": "Ecuador",
+    "flag_code": "ec",
+    "file": "assets/flags/ecuador.svg",
+    "source_url": "https://flagcdn.com/ec.svg"
+  },
+  {
+    "group": "F",
+    "team": "Netherlands",
+    "flag_code": "nl",
+    "file": "assets/flags/netherlands.svg",
+    "source_url": "https://flagcdn.com/nl.svg"
+  },
+  {
+    "group": "F",
+    "team": "Japan",
+    "flag_code": "jp",
+    "file": "assets/flags/japan.svg",
+    "source_url": "https://flagcdn.com/jp.svg"
+  },
+  {
+    "group": "F",
+    "team": "Sweden",
+    "flag_code": "se",
+    "file": "assets/flags/sweden.svg",
+    "source_url": "https://flagcdn.com/se.svg"
+  },
+  {
+    "group": "F",
+    "team": "Tunisia",
+    "flag_code": "tn",
+    "file": "assets/flags/tunisia.svg",
+    "source_url": "https://flagcdn.com/tn.svg"
+  },
+  {
+    "group": "G",
+    "team": "Belgium",
+    "flag_code": "be",
+    "file": "assets/flags/belgium.svg",
+    "source_url": "https://flagcdn.com/be.svg"
+  },
+  {
+    "group": "G",
+    "team": "Egypt",
+    "flag_code": "eg",
+    "file": "assets/flags/egypt.svg",
+    "source_url": "https://flagcdn.com/eg.svg"
+  },
+  {
+    "group": "G",
+    "team": "Iran",
+    "flag_code": "ir",
+    "file": "assets/flags/iran.svg",
+    "source_url": "https://flagcdn.com/ir.svg"
+  },
+  {
+    "group": "G",
+    "team": "New Zealand",
+    "flag_code": "nz",
+    "file": "assets/flags/new-zealand.svg",
+    "source_url": "https://flagcdn.com/nz.svg"
+  },
+  {
+    "group": "H",
+    "team": "Spain",
+    "flag_code": "es",
+    "file": "assets/flags/spain.svg",
+    "source_url": "https://flagcdn.com/es.svg"
+  },
+  {
+    "group": "H",
+    "team": "Cape Verde",
+    "flag_code": "cv",
+    "file": "assets/flags/cape-verde.svg",
+    "source_url": "https://flagcdn.com/cv.svg"
+  },
+  {
+    "group": "H",
+    "team": "Saudi Arabia",
+    "flag_code": "sa",
+    "file": "assets/flags/saudi-arabia.svg",
+    "source_url": "https://flagcdn.com/sa.svg"
+  },
+  {
+    "group": "H",
+    "team": "Uruguay",
+    "flag_code": "uy",
+    "file": "assets/flags/uruguay.svg",
+    "source_url": "https://flagcdn.com/uy.svg"
+  },
+  {
+    "group": "I",
+    "team": "France",
+    "flag_code": "fr",
+    "file": "assets/flags/france.svg",
+    "source_url": "https://flagcdn.com/fr.svg"
+  },
+  {
+    "group": "I",
+    "team": "Senegal",
+    "flag_code": "sn",
+    "file": "assets/flags/senegal.svg",
+    "source_url": "https://flagcdn.com/sn.svg"
+  },
+  {
+    "group": "I",
+    "team": "Iraq",
+    "flag_code": "iq",
+    "file": "assets/flags/iraq.svg",
+    "source_url": "https://flagcdn.com/iq.svg"
+  },
+  {
+    "group": "I",
+    "team": "Norway",
+    "flag_code": "no",
+    "file": "assets/flags/norway.svg",
+    "source_url": "https://flagcdn.com/no.svg"
+  },
+  {
+    "group": "J",
+    "team": "Argentina",
+    "flag_code": "ar",
+    "file": "assets/flags/argentina.svg",
+    "source_url": "https://flagcdn.com/ar.svg"
+  },
+  {
+    "group": "J",
+    "team": "Algeria",
+    "flag_code": "dz",
+    "file": "assets/flags/algeria.svg",
+    "source_url": "https://flagcdn.com/dz.svg"
+  },
+  {
+    "group": "J",
+    "team": "Austria",
+    "flag_code": "at",
+    "file": "assets/flags/austria.svg",
+    "source_url": "https://flagcdn.com/at.svg"
+  },
+  {
+    "group": "J",
+    "team": "Jordan",
+    "flag_code": "jo",
+    "file": "assets/flags/jordan.svg",
+    "source_url": "https://flagcdn.com/jo.svg"
+  },
+  {
+    "group": "K",
+    "team": "Portugal",
+    "flag_code": "pt",
+    "file": "assets/flags/portugal.svg",
+    "source_url": "https://flagcdn.com/pt.svg"
+  },
+  {
+    "group": "K",
+    "team": "DR Congo",
+    "flag_code": "cd",
+    "file": "assets/flags/dr-congo.svg",
+    "source_url": "https://flagcdn.com/cd.svg"
+  },
+  {
+    "group": "K",
+    "team": "Uzbekistan",
+    "flag_code": "uz",
+    "file": "assets/flags/uzbekistan.svg",
+    "source_url": "https://flagcdn.com/uz.svg"
+  },
+  {
+    "group": "K",
+    "team": "Colombia",
+    "flag_code": "co",
+    "file": "assets/flags/colombia.svg",
+    "source_url": "https://flagcdn.com/co.svg"
+  },
+  {
+    "group": "L",
+    "team": "England",
+    "flag_code": "gb-eng",
+    "file": "assets/flags/england.svg",
+    "source_url": "https://flagcdn.com/gb-eng.svg"
+  },
+  {
+    "group": "L",
+    "team": "Croatia",
+    "flag_code": "hr",
+    "file": "assets/flags/croatia.svg",
+    "source_url": "https://flagcdn.com/hr.svg"
+  },
+  {
+    "group": "L",
+    "team": "Ghana",
+    "flag_code": "gh",
+    "file": "assets/flags/ghana.svg",
+    "source_url": "https://flagcdn.com/gh.svg"
+  },
+  {
+    "group": "L",
+    "team": "Panama",
+    "flag_code": "pa",
+    "file": "assets/flags/panama.svg",
+    "source_url": "https://flagcdn.com/pa.svg"
+  }
+]

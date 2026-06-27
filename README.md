@@ -20,3 +20,4 @@ Then visit `http://127.0.0.1:8765/`.
 - Global top players view
 - Search, filters, sortable columns, OVR bands, confidence markers
 - Static CSV source with no build system
+- Local SVG flag backgrounds for all 48 qualified teams, sourced from FlagCDN
