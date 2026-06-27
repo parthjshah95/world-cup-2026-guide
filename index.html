@@ -691,12 +691,6 @@
       color: #344054;
     }
 
-    details.notes-details summary {
-      color: var(--blue);
-      cursor: pointer;
-      font-weight: 900;
-    }
-
     .mobile-cards {
       display: none;
       padding: 14px;
@@ -704,20 +698,87 @@
     }
 
     .player-card {
+      display: grid;
+      grid-template-columns: minmax(190px, 36%) minmax(0, 1fr);
+      min-height: 250px;
+      overflow: hidden;
       border: 1px solid rgba(16, 24, 40, 0.08);
       border-radius: 24px;
       background: #fff;
-      padding: 16px;
       box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
       animation: rowIn 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
       animation-delay: calc(min(var(--i, 0), 18) * 28ms);
     }
 
-    .card-top {
+    .player-photo {
+      position: relative;
+      isolation: isolate;
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.4), transparent 34%),
+        linear-gradient(135deg, var(--team-a, #101828), var(--team-b, #475467));
+      color: #fff;
+      font-size: clamp(3rem, 9vw, 5.6rem);
+      font-weight: 1000;
+    }
+
+    .player-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.18));
+      pointer-events: none;
+    }
+
+    .player-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .player-photo span {
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+    }
+
+    .player-card-content {
+      min-width: 0;
+      display: grid;
+      align-content: start;
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .player-card-heading {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 14px;
+      align-items: flex-start;
+    }
+
+    .player-card .player-name {
+      font-size: clamp(1.18rem, 2.6vw, 1.55rem);
+    }
+
+    .player-card .ovr {
+      min-width: 64px;
+      min-height: 52px;
+      border-radius: 16px;
+      font-size: 1.12rem;
+    }
+
+    .player-card .notes {
+      max-width: none;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     .card-meta-grid {
@@ -1035,6 +1096,18 @@
         grid-template-columns: 1fr;
       }
 
+      .player-card {
+        grid-template-columns: 1fr;
+      }
+
+      .player-photo {
+        min-height: clamp(300px, 72vw, 440px);
+      }
+
+      .player-card-content {
+        padding: 18px;
+      }
+
       .card-meta-grid {
         grid-template-columns: 1fr;
       }
@@ -1345,6 +1418,13 @@
       return `<div class="avatar ${size}" style="${styleVars(row.team)}" aria-hidden="true">${img}</div>`;
     }
 
+    function renderPlayerPhoto(row) {
+      const headshot = row.headshot_url || "";
+      const fallback = escapeHtml(initials(row.player));
+      const img = headshot ? `<img src="${escapeHtml(headshot)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span>${fallback}</span>'">` : `<span>${fallback}</span>`;
+      return `<div class="player-photo" style="${styleVars(row.team)}" aria-hidden="true">${img}</div>`;
+    }
+
     function renderOvr(row) {
       const band = ratingBand(row._ovr);
       const display = row._ovr === null ? "—" : row._ovr;
@@ -1359,8 +1439,7 @@
 
     function renderNotes(notes) {
       const text = String(notes || "");
-      if (text.length <= 130) return escapeHtml(text);
-      return `<details class="notes-details"><summary>${escapeHtml(text.slice(0, 126))}...</summary>${escapeHtml(text)}</details>`;
+      return escapeHtml(text);
     }
 
     function routeTo(next) {
@@ -1686,22 +1765,22 @@
     function renderPlayerCard(row, index, options) {
       return `
         <article class="player-card" style="--i: ${index};">
-          <div class="card-top">
-            <div class="player-cell">
-              ${renderAvatar(row)}
+          ${renderPlayerPhoto(row)}
+          <div class="player-card-content">
+            <div class="player-card-heading">
               <div>
                 <div class="player-name">${escapeHtml(row.player)}</div>
                 <div class="meta">${options.showTeam ? `${escapeHtml(row.team)} · ` : ""}${escapeHtml(row.position || "Position unknown")}</div>
               </div>
+              ${renderOvr(row)}
             </div>
-            ${renderOvr(row)}
+            <div class="card-meta-grid">
+              <div><b>Club</b>${renderClub(row)}</div>
+              ${options.showInclusion ? `<div><b>Inclusion</b>${escapeHtml(labelize(row.inclusion_type))}</div>` : ""}
+              ${options.showSource ? `<div><b>Confidence</b>${renderConfidence(row)}</div>` : ""}
+            </div>
+            <div class="notes">${renderNotes(row.notes)}</div>
           </div>
-          <div class="card-meta-grid">
-            <div><b>Club</b>${renderClub(row)}</div>
-            ${options.showInclusion ? `<div><b>Inclusion</b>${escapeHtml(labelize(row.inclusion_type))}</div>` : ""}
-            ${options.showSource ? `<div><b>Confidence</b>${renderConfidence(row)}</div>` : ""}
-          </div>
-          <div class="notes">${renderNotes(row.notes)}</div>
         </article>
       `;
     }
