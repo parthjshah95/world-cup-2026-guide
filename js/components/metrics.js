@@ -35,7 +35,7 @@
   }
 
   function renderComparePlayerCards(rows, teamMap) {
-    if (!rows.length) return `<div class="empty-state compact-empty-state">No ratings collected</div>`;
+    if (!rows.length) return `<div class="empty-state compact-empty-state">No players collected</div>`;
     return `
       <div class="compare-player-grid">
         ${rows.map((row, index) => renderComparePlayerCard(row, index, teamMap)).join("")}

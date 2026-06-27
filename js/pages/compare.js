@@ -8,7 +8,7 @@
     renderTopbar,
     styleVars
   } = WC26.Components;
-  const { animateCounters, bindDynamicEffects, escapeHtml, formatNumber, readParams, renderAge, setUrlParams, teamUrl } = WC26.Utils;
+  const { animateCounters, bindDynamicEffects, compareRowsForState, escapeHtml, formatNumber, readParams, renderAge, setUrlParams, teamUrl } = WC26.Utils;
   const { loadTeam, loadTeamsSummary, showLoadError } = WC26.Data;
   const { teamStats } = WC26.Stats;
 
@@ -98,6 +98,7 @@
 
   function renderSelectedTeam(side, summary, rows) {
     const stats = teamStats(summary.name, rows);
+    const allPlayers = [...rows].sort(compareRowsForState({ sortKey: "fc26_ovr", sortDir: "desc" }));
     return `
       <section class="compare-side">
         <article class="selected-team-panel">
@@ -119,8 +120,8 @@
             <a class="solid-button" href="${teamUrl(summary)}">View team home</a>
           </div>
           <div class="compare-section">
-            <h3>Top 5 Players</h3>
-            ${renderComparePlayerCards(stats.topFive, teamMap)}
+            <h3>All Players (${allPlayers.length})</h3>
+            ${renderComparePlayerCards(allPlayers, teamMap)}
           </div>
           <div class="compare-section">
             <h3>Position Groups</h3>
