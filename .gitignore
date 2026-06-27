@@ -2,3 +2,4 @@
 .DS_Store
 assets/worldcup-2026-ball*.png
 assets/worldcup-2026-ball*.webp
+!assets/worldcup-2026-ball.webp
