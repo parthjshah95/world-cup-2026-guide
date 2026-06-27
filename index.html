@@ -689,7 +689,7 @@
 
     .controls-panel {
       display: grid;
-      grid-template-columns: minmax(260px, 1.5fr) repeat(5, minmax(145px, 1fr));
+      grid-template-columns: minmax(260px, 1.5fr) repeat(3, minmax(145px, 1fr));
       gap: 12px;
       align-items: end;
       padding: 14px;
@@ -856,7 +856,6 @@
       color: #475467;
     }
 
-    .badge,
     .pill {
       display: inline-flex;
       align-items: center;
@@ -872,20 +871,6 @@
     .pill {
       background: #f2f4f7;
       color: #344054;
-    }
-
-    .confidence {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 7px;
-      color: #475467;
-      font-size: 0.78rem;
-      font-weight: 900;
-    }
-
-    .confidence.low {
-      color: var(--orange);
     }
 
     .notes {
@@ -1180,6 +1165,13 @@
       padding: 0 4px;
     }
 
+    .data-boundary-note {
+      padding: 0 4px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
     :root[data-theme="dark"] .eyebrow,
     :root[data-theme="dark"] .controls-panel,
     :root[data-theme="dark"] .table-card,
@@ -1249,15 +1241,6 @@
     :root[data-theme="dark"] .distribution-row {
       background: rgba(30, 41, 59, 0.92);
       color: #d7dfec;
-    }
-
-    :root[data-theme="dark"] .badge {
-      background: rgba(96, 165, 250, 0.18);
-      color: #bfdbfe;
-    }
-
-    :root[data-theme="dark"] .confidence {
-      color: #aab7cb;
     }
 
     :root[data-theme="dark"] .ovr.unknown {
@@ -1558,9 +1541,7 @@
       filters: {
         team: "",
         club_country: "",
-        position_group: "",
-        rating_confidence: "",
-        inclusion_type: ""
+        position_group: ""
       },
       sortKey: "fc26_ovr",
       sortDir: "desc",
@@ -1790,7 +1771,6 @@
         elite90: rated.filter((row) => row._ovr >= 90).length,
         positionCounts: countsBy(rows, "_position_group"),
         clubCountryCounts: countsBy(rows, "club_country"),
-        confidenceCounts: countsBy(rows, "rating_confidence"),
         topFive: [...rated].sort((a, b) => b._ovr - a._ovr || a.player.localeCompare(b.player)).slice(0, 5)
       };
     }
@@ -1828,15 +1808,13 @@
       return `<span class="ovr ${band.className}" title="${escapeHtml(band.label)}">${display}</span>`;
     }
 
-    function renderConfidence(row) {
-      const confidence = row.rating_confidence || "unknown";
-      const low = confidence.toLowerCase() === "low";
-      return `<span class="confidence ${low ? "low" : ""}" title="${escapeHtml(row.rating_source || "No source detail")}">${low ? "!" : ""} ${escapeHtml(labelize(confidence))}</span>`;
-    }
-
     function renderNotes(notes) {
       const text = String(notes || "");
       return escapeHtml(text);
+    }
+
+    function renderDataBoundaryNote() {
+      return `<p class="data-boundary-note">Data rule: inclusion type has been removed from the CSV and UI. Do not reintroduce it into cards, tables, filters, or compare views.</p>`;
     }
 
     function routeTo(next) {
@@ -1848,7 +1826,7 @@
       if (next.search) params.set("q", next.search);
       if (next.sortKey) params.set("sort", next.sortKey);
       if (next.sortDir) params.set("dir", next.sortDir);
-      ["club_country", "position_group", "rating_confidence", "inclusion_type"].forEach((key) => {
+      ["club_country", "position_group"].forEach((key) => {
         if (next.filters?.[key]) params.set(key, next.filters[key]);
       });
       window.history.pushState({}, "", `${window.location.pathname}?${params.toString()}`);
@@ -1871,9 +1849,7 @@
       state.filters = {
         team: params.get("teamFilter") || "",
         club_country: params.get("club_country") || "",
-        position_group: params.get("position_group") || "",
-        rating_confidence: params.get("rating_confidence") || "",
-        inclusion_type: params.get("inclusion_type") || ""
+        position_group: params.get("position_group") || ""
       };
 
       if (state.view === "team" && !teamRows(state.team).length) {
@@ -1966,13 +1942,13 @@
               </div>
             </div>
           </section>
+          ${renderDataBoundaryNote()}
           ${renderTableCard(rows, `${team} Player Table`, `${stats.count} players in dataset`, {
             showTeam: false,
-            showInclusion: false,
             showSource: false,
             showReset: false
           })}
-          <p class="fine-print">Low-confidence rows are marked. Future iterations can add per-row source URLs for stricter provenance.</p>
+          <p class="fine-print">Future iterations can add per-row source URLs for stricter provenance.</p>
         </section>
       `;
     }
@@ -1999,6 +1975,7 @@
             </div>
           </section>
           ${renderControls(true)}
+          ${renderDataBoundaryNote()}
           ${renderTableCard(rows, "All Players", `${rows.length} visible players · ${state.rows.length} total`)}
         </section>
       `;
@@ -2023,8 +2000,6 @@
           ${teamControl}
           ${renderSelect("club_country", "Club Country", "All club countries", uniqueSorted("club_country"))}
           ${renderSelect("position_group", "Position Group", "All position groups", uniqueSorted("_position_group"))}
-          ${renderSelect("rating_confidence", "Confidence", "All confidence levels", uniqueSorted("rating_confidence"))}
-          ${renderSelect("inclusion_type", "Inclusion Type", "All inclusion types", uniqueSorted("inclusion_type"))}
         </section>
       `;
     }
@@ -2050,8 +2025,6 @@
       if (includeTeamFilter && state.filters.team) rows = rows.filter((row) => row.team === state.filters.team);
       if (state.filters.club_country) rows = rows.filter((row) => row.club_country === state.filters.club_country);
       if (state.filters.position_group) rows = rows.filter((row) => row._position_group === state.filters.position_group);
-      if (state.filters.rating_confidence) rows = rows.filter((row) => row.rating_confidence === state.filters.rating_confidence);
-      if (state.filters.inclusion_type) rows = rows.filter((row) => row.inclusion_type === state.filters.inclusion_type);
 
       const q = state.search.trim().toLowerCase();
       if (q) {
@@ -2090,7 +2063,6 @@
     function renderTableCard(rows, title, countText, options = {}) {
       const columnOptions = {
         showTeam: true,
-        showInclusion: true,
         showSource: true,
         showReset: true,
         ...options
@@ -2113,7 +2085,6 @@
                     ${columnOptions.showTeam ? `<th class="sortable" data-sort="team" data-label="Team">Team</th>` : ""}
                     <th class="sortable" data-sort="club_with_country" data-label="Club">Club</th>
                     <th class="sortable" data-sort="fc26_ovr" data-label="FC 26 OVR">FC 26 OVR</th>
-                    ${columnOptions.showInclusion ? `<th class="sortable" data-sort="inclusion_type" data-label="Inclusion Type">Inclusion Type</th>` : ""}
                     ${columnOptions.showSource ? "<th>Source</th>" : ""}
                     <th>Notes</th>
                   </tr>
@@ -2153,8 +2124,7 @@
           ${options.showTeam ? `<td><span class="pill">${escapeHtml(row.team)}</span></td>` : ""}
           <td>${renderClub(row)}</td>
           <td>${renderOvr(row)}</td>
-          ${options.showInclusion ? `<td><span class="badge">${escapeHtml(labelize(row.inclusion_type))}</span></td>` : ""}
-          ${options.showSource ? `<td>${escapeHtml(row.rating_source || "Unknown")}${renderConfidence(row)}</td>` : ""}
+          ${options.showSource ? `<td>${escapeHtml(row.rating_source || "Unknown")}</td>` : ""}
           <td class="notes">${renderNotes(row.notes)}</td>
         </tr>
       `;
@@ -2174,8 +2144,6 @@
             </div>
             <div class="card-meta-grid">
               <div><b>Club</b>${renderClub(row)}</div>
-              ${options.showInclusion ? `<div><b>Inclusion</b>${escapeHtml(labelize(row.inclusion_type))}</div>` : ""}
-              ${options.showSource ? `<div><b>Confidence</b>${renderConfidence(row)}</div>` : ""}
             </div>
             <div class="notes">${renderNotes(row.notes)}</div>
           </div>
@@ -2269,12 +2237,6 @@
                 ${renderDistribution(stats.clubCountryCounts, 6)}
               </div>
             </div>
-            <div class="compare-section">
-              <h3>Rating Confidence</h3>
-              <div class="distribution-grid">
-                ${renderDistribution(stats.confidenceCounts, 4, true)}
-              </div>
-            </div>
           </article>
         </section>
       `;
@@ -2344,9 +2306,7 @@
       state.filters = {
         team: "",
         club_country: "",
-        position_group: "",
-        rating_confidence: "",
-        inclusion_type: ""
+        position_group: ""
       };
       state.sortKey = "fc26_ovr";
       state.sortDir = "desc";
