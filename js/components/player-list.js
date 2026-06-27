@@ -63,7 +63,48 @@
             ${rows.map((row, index) => renderPlayerCard(row, index, columnOptions)).join("")}
           </div>
         ` : `<div class="empty-state">No players match the current filters.</div>`}
+        ${renderPagination(columnOptions.pagination)}
       </section>
+    `;
+  }
+
+  function renderPagination(pagination) {
+    if (!pagination) return "";
+    const totalPages = Math.max(1, Number(pagination.totalPages) || 1);
+    if (totalPages <= 1) return "";
+
+    const page = Math.min(Math.max(1, Number(pagination.page) || 1), totalPages);
+    const pages = paginationPages(page, totalPages);
+
+    return `
+      <nav class="pagination" aria-label="Player pages">
+        <div class="pagination-summary">Page ${page} of ${totalPages}</div>
+        <div class="pagination-buttons">
+          ${renderPageButton("First", 1, page === 1)}
+          ${renderPageButton("Prev", page - 1, page === 1)}
+          ${pages.map((pageNumber) => renderPageButton(String(pageNumber), pageNumber, false, pageNumber === page)).join("")}
+          ${renderPageButton("Next", page + 1, page === totalPages)}
+          ${renderPageButton("Last", totalPages, page === totalPages)}
+        </div>
+      </nav>
+    `;
+  }
+
+  function paginationPages(page, totalPages) {
+    const maxButtons = 5;
+    if (totalPages <= maxButtons) {
+      return Array.from({ length: totalPages }, (_, index) => index + 1);
+    }
+
+    const start = Math.max(1, Math.min(page - 2, totalPages - maxButtons + 1));
+    return Array.from({ length: maxButtons }, (_, index) => start + index);
+  }
+
+  function renderPageButton(label, page, disabled, active = false) {
+    return `
+      <button class="pagination-button ${active ? "active" : ""}" type="button" data-page="${page}" ${disabled ? "disabled" : ""} ${active ? 'aria-current="page"' : ""}>
+        ${escapeHtml(label)}
+      </button>
     `;
   }
 

@@ -716,6 +716,7 @@ label {
 
 .player-list-panel {
   overflow: visible;
+  scroll-margin-top: calc(var(--header-height) + 14px);
   border: 1px solid rgba(16, 24, 40, 0.08);
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.82);
@@ -803,6 +804,61 @@ label {
 
 .sort-button.active span {
   color: rgba(255, 255, 255, 0.72);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 0 clamp(18px, 2.4vw, 28px) clamp(18px, 2.4vw, 28px);
+}
+
+.pagination-summary {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid rgba(16, 24, 40, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 950;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+.pagination-button.active {
+  border-color: #101828;
+  background: #101828;
+  color: #fff;
+}
+
+.pagination-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
 }
 
 .player-name {
@@ -1426,7 +1482,19 @@ label {
   color: var(--ink);
 }
 
+:root[data-theme="dark"] .pagination-button {
+  border-color: rgba(226, 232, 240, 0.12);
+  background: rgba(30, 41, 59, 0.72);
+  color: var(--ink);
+}
+
 :root[data-theme="dark"] .sort-button.active {
+  border-color: rgba(226, 232, 240, 0.82);
+  background: #eef4ff;
+  color: #0b1220;
+}
+
+:root[data-theme="dark"] .pagination-button.active {
   border-color: rgba(226, 232, 240, 0.82);
   background: #eef4ff;
   color: #0b1220;
@@ -1613,6 +1681,20 @@ label {
   .list-actions,
   .sort-controls {
     justify-content: flex-start;
+  }
+
+  .pagination {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pagination-buttons {
+    justify-content: flex-start;
+  }
+
+  .pagination-button {
+    min-width: 44px;
+    min-height: 42px;
   }
 
   .mini-grid {
