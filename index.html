@@ -1081,8 +1081,6 @@
   </div>
 
   <script>
-    const preferredTeams = ["Uruguay", "Spain", "Argentina", "France", "England", "Portugal", "Brazil"];
-
     const qualifiedTeamFlags = [
       { name: "Mexico", group: "A", code: "MEX", flagUrl: "assets/flags/mexico.svg", colors: ["#006847", "#ce1126"] },
       { name: "South Africa", group: "A", code: "RSA", flagUrl: "assets/flags/south-africa.svg", colors: ["#007a4d", "#de3831"] },
@@ -1135,6 +1133,7 @@
     ];
 
     const teamMeta = Object.fromEntries(qualifiedTeamFlags.map((team) => [team.name, team]));
+    const preferredTeams = qualifiedTeamFlags.map((team) => team.name);
 
     const state = {
       rows: [],
@@ -1441,7 +1440,7 @@
       els.app.innerHTML = `
         <section class="view home-hero">
           <div class="hero-copy">
-            <div class="eyebrow">Seven teams · ${state.rows.length} players · one clean guide</div>
+            <div class="eyebrow">${teams.length} teams · ${state.rows.length} players · one clean guide</div>
             <h1>Pick a country. Scout the squad.</h1>
             <p>Explore World Cup player tables through premium flag cards, full-page team profiles, and head-to-head country comparisons built from the collected FC 26 seed data.</p>
           </div>
