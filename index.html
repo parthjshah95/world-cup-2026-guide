@@ -1519,7 +1519,11 @@
             </div>
           </section>
           ${renderControls(false)}
-          ${renderTableCard(rows, `${team} Player Table`, `${rows.length} visible players · ${stats.count} on team`)}
+          ${renderTableCard(rows, `${team} Player Table`, `${rows.length} visible players · ${stats.count} on team`, {
+            showTeam: false,
+            showInclusion: false,
+            showSource: false
+          })}
           <p class="fine-print">Low-confidence rows are marked. Future iterations can add per-row source URLs for stricter provenance.</p>
         </section>
       `;
@@ -1635,7 +1639,13 @@
       return av.localeCompare(bv) * dir;
     }
 
-    function renderTableCard(rows, title, countText) {
+    function renderTableCard(rows, title, countText, options = {}) {
+      const columnOptions = {
+        showTeam: true,
+        showInclusion: true,
+        showSource: true,
+        ...options
+      };
       return `
         <section class="table-card">
           <div class="table-head">
@@ -1651,29 +1661,36 @@
                 <thead>
                   <tr>
                     <th class="sortable" data-sort="player" data-label="Player">Player</th>
-                    <th class="sortable" data-sort="team" data-label="Team">Team</th>
+                    ${columnOptions.showTeam ? `<th class="sortable" data-sort="team" data-label="Team">Team</th>` : ""}
                     <th class="sortable" data-sort="club_with_country" data-label="Club">Club</th>
                     <th class="sortable" data-sort="position" data-label="Position">Position</th>
                     <th class="sortable" data-sort="fc26_ovr" data-label="FC 26 OVR">FC 26 OVR</th>
-                    <th class="sortable" data-sort="inclusion_type" data-label="Inclusion Type">Inclusion Type</th>
-                    <th>Source</th>
+                    ${columnOptions.showInclusion ? `<th class="sortable" data-sort="inclusion_type" data-label="Inclusion Type">Inclusion Type</th>` : ""}
+                    ${columnOptions.showSource ? "<th>Source</th>" : ""}
                     <th>Notes</th>
                   </tr>
                 </thead>
                 <tbody>
-                  ${rows.map((row, index) => renderPlayerRow(row, index)).join("")}
+                  ${rows.map((row, index) => renderPlayerRow(row, index, columnOptions)).join("")}
                 </tbody>
               </table>
             </div>
             <div class="mobile-cards">
-              ${rows.map((row, index) => renderPlayerCard(row, index)).join("")}
+              ${rows.map((row, index) => renderPlayerCard(row, index, columnOptions)).join("")}
             </div>
           ` : `<div class="empty-state">No players match the current filters.</div>`}
         </section>
       `;
     }
 
-    function renderPlayerRow(row, index) {
+    function renderClub(row) {
+      return `
+        <div>${escapeHtml(row.club || "—")}</div>
+        ${row.club_country ? `<div class="meta"><span class="pill">${escapeHtml(row.club_country)}</span></div>` : ""}
+      `;
+    }
+
+    function renderPlayerRow(row, index, options) {
       return `
         <tr style="--i: ${index};">
           <td>
@@ -1685,18 +1702,18 @@
               </div>
             </div>
           </td>
-          <td><span class="pill">${escapeHtml(row.team)}</span></td>
-          <td>${escapeHtml(row.club_with_country || row.club || "—")}<div class="meta">${escapeHtml(row.club_country || "")}</div></td>
+          ${options.showTeam ? `<td><span class="pill">${escapeHtml(row.team)}</span></td>` : ""}
+          <td>${renderClub(row)}</td>
           <td>${escapeHtml(row.position || "—")}<div class="meta">${escapeHtml(row._position_group)}</div></td>
           <td>${renderOvr(row)}</td>
-          <td><span class="badge">${escapeHtml(labelize(row.inclusion_type))}</span></td>
-          <td>${escapeHtml(row.rating_source || "Unknown")}${renderConfidence(row)}</td>
+          ${options.showInclusion ? `<td><span class="badge">${escapeHtml(labelize(row.inclusion_type))}</span></td>` : ""}
+          ${options.showSource ? `<td>${escapeHtml(row.rating_source || "Unknown")}${renderConfidence(row)}</td>` : ""}
           <td class="notes">${renderNotes(row.notes)}</td>
         </tr>
       `;
     }
 
-    function renderPlayerCard(row, index) {
+    function renderPlayerCard(row, index, options) {
       return `
         <article class="player-card" style="--i: ${index};">
           <div class="card-top">
@@ -1704,16 +1721,16 @@
               ${renderAvatar(row)}
               <div>
                 <div class="player-name">${escapeHtml(row.player)}</div>
-                <div class="meta">${escapeHtml(row.team)} · ${escapeHtml(row.position || "Position unknown")}</div>
+                <div class="meta">${options.showTeam ? `${escapeHtml(row.team)} · ` : ""}${escapeHtml(row.position || "Position unknown")}</div>
               </div>
             </div>
             ${renderOvr(row)}
           </div>
           <div class="card-meta-grid">
-            <div><b>Club</b>${escapeHtml(row.club_with_country || row.club || "—")}</div>
+            <div><b>Club</b>${renderClub(row)}</div>
             <div><b>Position Group</b>${escapeHtml(row._position_group)}</div>
-            <div><b>Inclusion</b>${escapeHtml(labelize(row.inclusion_type))}</div>
-            <div><b>Confidence</b>${renderConfidence(row)}</div>
+            ${options.showInclusion ? `<div><b>Inclusion</b>${escapeHtml(labelize(row.inclusion_type))}</div>` : ""}
+            ${options.showSource ? `<div><b>Confidence</b>${renderConfidence(row)}</div>` : ""}
           </div>
           <div class="notes">${renderNotes(row.notes)}</div>
         </article>
