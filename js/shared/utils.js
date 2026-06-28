@@ -35,9 +35,9 @@
   function positionGroup(position) {
     const p = String(position || "").toUpperCase();
     if (p.includes("GK")) return "GK";
-    if (p.includes("CB") || p.includes("LB") || p.includes("RB") || p.includes("RWB") || p.includes("DEF") || p.includes("FULLBACK")) return "DEF";
-    if (p.includes("CM") || p.includes("CDM") || p.includes("DM") || p.includes("AM") || p.includes("CAM") || p.includes("MID")) return "MID";
-    if (p.includes("LW") || p.includes("RW") || p.includes("ST") || p.includes("CF") || p.includes("WINGER") || p.includes("FORWARD") || p.includes("STRIKER")) return "ATT";
+    if (p === "DF" || p.includes("CB") || p.includes("LB") || p.includes("RB") || p.includes("RWB") || p.includes("DEF") || p.includes("FULLBACK")) return "DEF";
+    if (p === "MF" || p.includes("CM") || p.includes("CDM") || p.includes("DM") || p.includes("AM") || p.includes("CAM") || p.includes("MID")) return "MID";
+    if (p === "FW" || p.includes("LW") || p.includes("RW") || p.includes("ST") || p.includes("CF") || p.includes("WINGER") || p.includes("FORWARD") || p.includes("STRIKER")) return "ATT";
     return "OTHER";
   }
 

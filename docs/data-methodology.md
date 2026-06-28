@@ -1,6 +1,6 @@
 # Data Methodology
 
-Last reviewed: 2026-06-27
+Last reviewed: 2026-06-28
 
 This dataset powers the interactive World Cup player-comparison app. It is not a fully audited sports database.
 
@@ -10,6 +10,7 @@ This dataset powers the interactive World Cup player-comparison app. It is not a
 
 - The original seven-team curated player sets for Uruguay, Spain, Argentina, France, England, Portugal, and Brazil.
 - A generated 48-team expansion built from 2026 World Cup squad tables plus FC 26 rating matches.
+- Manually reverified full 26-player squad overrides for Colombia and Portugal, refreshed from the current 2026 FIFA World Cup squads table on 2026-06-28.
 
 Rows should be treated as selected notable/core player rows, not as a definitive complete scouting database.
 
@@ -61,6 +62,7 @@ For the all-team expansion:
 - FC 26 OVR, rating URL, and headshot URL were matched from the FC Ratings search index.
 - The original seven curated teams were preserved rather than overwritten.
 - Missing-team rows were generated as ratings-led 15-player team datasets from each final squad, with at least one goalkeeper included when available.
+- Colombia and Portugal now use full 26-player squad rows from the current 2026 FIFA World Cup squads table instead of the generated 15-player subset.
 - Rows matched through FC Ratings are marked `rating_source = third_party_fc_database`.
 - Rows without a rating match keep blank `fc26_ovr` and are marked `rating_confidence = unknown`.
 
